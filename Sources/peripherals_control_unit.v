@@ -16,7 +16,7 @@ module peripherals_control_unit(
 );
 
 localparam  TEXT 		= 	16'B0000000001000000;
-localparam  DATA 		= 	32'B10000000000010000000000000000;
+localparam 	STACK 	=  32'B01110111001101011001010000000000;
 localparam  GPIO_1 	=  16'B0000000000100100;
 localparam  GPIO_2 	=  16'B0000000000101000;
 
@@ -30,15 +30,15 @@ localparam  GPIO_2 	=  16'B0000000000101000;
 			selector <= 3'b001;
 			end
 
-	else if (Adr_in[31:16] == DATA && (Adr_in[15:0] == GPIO_1 || Adr_in[15:0] == GPIO_2 ) )
+	else if (Adr_in[15:0] == GPIO_1 || Adr_in[15:0] == GPIO_2 )
 			begin //GPIO
 			Adr_out <= Adr_in[31:0];
 			Data_out <= Data_in_2;
 			selector <= 3'b010;
 			end
-	else if (Adr_in[31:0] >= DATA)
-			begin //RAM
-			Adr_out <= (Adr_in[15:0]) / 4;
+	else if (Adr_in[31:0] >= STACK)
+			begin //STACK
+			Adr_out <= Adr_in[31:0] - 2147479516; // make it from 0-32
 			Data_out <=Data_in_1;
 			selector <= 3'b100;
 			end

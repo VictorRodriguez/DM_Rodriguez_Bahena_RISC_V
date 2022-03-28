@@ -19,19 +19,19 @@ wire [31:0] Data_ROM;
 wire [31:0] Data_RAM;
 wire [31:0] Data_GPIO;
 wire [31:0] Adr_out;
-wire [31:0] Data_out_PCU;
+wire [31:0] Data_out_CPU;
 wire [2:0] selector;
 wire [7:0] gpio_port_out_w;
 
 riscv_core riscv_core_(
 	// inputs
-	.clk(clk),
+	.clk(heard_bit_out),
 	.rst(rst),
 	// outputs
 	.Adr(Adr),
 	.MemWrite(MemWrite),
 	.Data_out(Data_out),
-	.Data_in(Data_out_PCU)
+	.Data_in(Data_out_CPU)
 );
 
 peripherals_control_unit peripherals_control_unit_(
@@ -46,14 +46,14 @@ peripherals_control_unit peripherals_control_unit_(
 
 	// outputs
 	.selector(selector),
-	.Data_out(Data_out_PCU),
+	.Data_out(Data_out_CPU),
 	.Adr_out(Adr_out)
 );
 
 rom_module #(.DATA_WIDTH(32), .ADDR_WIDTH(32) ) rom_module_(
 	// inputs
 	.Addr(Adr_out),
-	.clk(clk),
+	.clk(heard_bit_out),
 	.WE(), // N/A
 	.WD(), // N/A
 	// outputs
@@ -63,8 +63,8 @@ rom_module #(.DATA_WIDTH(32), .ADDR_WIDTH(32) ) rom_module_(
 ram_module #(.DATA_WIDTH(32), .ADDR_WIDTH(32) ) ram_module_(
 	// inputs
 	.Addr(Adr_out),
-	.clk(clk),
-	.WE(MemWrite && selector[1]),
+	.clk(heard_bit_out),
+	.WE(MemWrite),
 	.WD(Data_out),
 	// outputs
 	.RD(Data_RAM)
@@ -83,9 +83,9 @@ gpio gpio_(
 	.gpio_port_out (gpio_port_out_w) // LEDS
 );
 
-register_n # (.n(8)) leds_reg (.D(gpio_port_out_w),.clk(clk),.rst(rst),.load(set_leds),.Q(gpio_port_out));
+register_n # (.n(8)) leds_reg (.D(gpio_port_out_w),.clk(heard_bit_out),.rst(rst),.load(set_leds),.Q(gpio_port_out));
 
-Heard_Bit  # (.Half_Period_Counts(25_000_000) ) // half second for a clk of 50 MHz 
+Heard_Bit  # (.Half_Period_Counts(10_000_000) ) // half second for a clk of 50 MHz 
           design_monitor (.clk(clk), .rst(rst), .enable(1'b1), .heard_bit_out(heard_bit_out));
 			 
 endmodule

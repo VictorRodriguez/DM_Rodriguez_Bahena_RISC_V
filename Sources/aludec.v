@@ -29,6 +29,8 @@ always @*
 				alucontrol <= 4'b0110; // sub
 			else if (func3 == 'h01 && func7 == 'h00) 
 				alucontrol <= 4'b0111; // sll
+			else if (func3 == 'h00 && func7 == 'h01) 
+				alucontrol <= 4'b0011; // sll
 			else
 				alucontrol <= 4'bxxxx; // ???
 	endcase

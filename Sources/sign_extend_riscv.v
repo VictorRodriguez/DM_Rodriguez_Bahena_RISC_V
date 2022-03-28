@@ -18,6 +18,7 @@ always @*
 	begin
 	case(opcode)
 		I_TYPE: extended <= { {20{extend[11]}}, extend[11:0] };
+		I_LOAD: extended <= { {20{extend[11]}}, extend[11:0] };
 		S_TYPE: extended <= { {20{extend[11]}}, extend[11:0] };
 		B_TYPE: extended <= { {20{extend[11]}}, extend[11:0] };
 		AUIPC:  extended <= { {12{extend[19]}}, extend[19:0] };

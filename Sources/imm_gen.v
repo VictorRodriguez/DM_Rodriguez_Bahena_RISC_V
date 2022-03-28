@@ -18,6 +18,7 @@ always @*
 	begin
 	case(opcode)
 		I_TYPE: imm <= instruction[31:20];
+		I_LOAD: imm <= instruction[31:20];
 		S_TYPE: imm <= {instruction[31:25],instruction[11:7]};
 		B_TYPE: imm <= {instruction[31],instruction[7],instruction[30:25],instruction[11:8],{1'b0}};
 		AUIPC:  imm <= instruction[31:12];

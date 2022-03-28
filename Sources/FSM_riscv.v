@@ -38,26 +38,27 @@ module FSM_riscv(
 );
 
 // States
-localparam 	FETCH 				= 5'b00000;
-localparam 	DECODE 				= 5'b00001;
-localparam 	MEM_ADR				= 5'b00010;
-localparam 	MEM_READ				= 5'b00011;
-localparam  MEM_WRITE_BACK		= 5'b00100;
-localparam 	MEM_WRITE			= 5'b00101;
-localparam  EXECUTE				= 5'b00110;
-localparam  ALU_WRITE_BACK		= 5'b00111;
-localparam  ADDI_EXECUTE		= 5'B01000;
-localparam  ADDI_WRITE_BACK	= 5'B01001;
-localparam  EXECUTE_SLL			= 5'b01010;
-localparam  ANDI_STATE			= 5'b01011;
-localparam  SLLI_STATE			= 5'b01100;
-localparam  AUIPC_STATE			= 5'b01101;
-localparam  B_STATE				= 5'b01110;
-localparam  BNE_STATE			= 5'b01111;
-localparam  JAL_STATE			= 5'b10000;
-localparam  JAL_WRITE_BACK		= 5'b10001;
-localparam  SLTI_STATE  		= 5'b10010;
-localparam  HALT					= 5'B11111;
+localparam 	FETCH 				= 5'b00000; //0
+localparam 	DECODE 				= 5'b00001; //1
+localparam 	MEM_ADR				= 5'b00010; //2
+localparam 	MEM_READ				= 5'b00011; //3
+localparam  MEM_WRITE_BACK		= 5'b00100; //4
+localparam 	MEM_WRITE			= 5'b00101; //5
+localparam  EXECUTE				= 5'b00110; //6
+localparam  ALU_WRITE_BACK		= 5'b00111; //7
+localparam  ADDI_EXECUTE		= 5'B01000; //8
+localparam  ADDI_WRITE_BACK	= 5'B01001; //9
+localparam  EXECUTE_SLL			= 5'b01010; //10
+localparam  ANDI_STATE			= 5'b01011; //11
+localparam  SLLI_STATE			= 5'b01100; //12
+localparam  AUIPC_STATE			= 5'b01101; //13
+localparam  B_STATE				= 5'b01110; //14
+localparam  BNE_STATE			= 5'b01111; //15
+localparam  JAL_STATE			= 5'b10000; //16
+localparam  JAL_WRITE_BACK		= 5'b10001; //17
+localparam  SLTI_STATE  		= 5'b10010; //18
+localparam  JALR_STATE			= 5'b10011; //19
+localparam  HALT					= 5'B11111; //31
 
 // Opcodes
 localparam R_TYPE 	= 7'b0110011;
@@ -112,6 +113,8 @@ always @(negedge rst, posedge clk)
 						STATE <= BNE_STATE;
 					else if (opcode == JAL)
 						STATE <= JAL_STATE;
+					else if (opcode == JALR)
+						STATE <= JALR_STATE;
 					else
 						STATE <= HALT;
 				MEM_ADR:
@@ -151,6 +154,8 @@ always @(negedge rst, posedge clk)
 					STATE <= JAL_WRITE_BACK;
 				JAL_WRITE_BACK:
 					STATE <= FETCH;
+				JALR_STATE:
+					STATE <= JAL_WRITE_BACK;
 				HALT:
 					STATE <= HALT;
 				default:
@@ -458,6 +463,23 @@ always @(STATE)
 					
 					IorD <= 1'b0;
 					PCSrc  <= 1'b1;
+					IRWrite <= 1'b0;
+					PCWrite  <= 1'b1;
+					MemtoReg  <= 1'b0;
+					RegDst  <= 1'b0;
+					MemWrite <= 1'b0;
+					RegWrite <= 1'b0;
+					PCWriteCond <= 1'b0;
+					PCWriteCond_NE <= 1'b0;
+					end
+				JALR_STATE: 	
+					begin
+					ALUSrcA <= 2'b01;
+					ALUSrcB <= 2'b10;
+					ALUOp<= 2'b00;
+					
+					IorD <= 1'b0;
+					PCSrc  <= 1'b0;
 					IRWrite <= 1'b0;
 					PCWrite  <= 1'b1;
 					MemtoReg  <= 1'b0;
