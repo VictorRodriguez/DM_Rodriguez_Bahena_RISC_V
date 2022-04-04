@@ -1,14 +1,14 @@
 module gpio(
 	/// inputs
 	input [31:0] Adr_in,
-	
+	input clk,
+   input rst,
 	input [31:0] Data_in,
-	input [7:0]  gpio_port_in, // SWITCHES
+	input [7:0]  switches, // SWITCHES
 
 	// outputs
-	output reg set_leds,
-	output reg [31:0] Data_out,
-	output reg [7:0]  gpio_port_out // LEDS
+	output [31:0] Data_out,
+	output reg [7:0]  Leds // LEDS
 );
 
 localparam  TEXT 		= 	16'B0000000001000000;
@@ -17,27 +17,28 @@ localparam  GPIO_1 	=  16'B0000000000100100; // 24 leds
 localparam  GPIO_2 	=  16'B0000000000101000; // 28 switches
 
 
-	always @*
+	always @(posedge clk or negedge rst)
 	begin
-	if (Adr_in[31:16] == DATA && (Adr_in[15:0] == GPIO_1) )
+	if (!rst)
+		begin
+			Leds <= {(7){1'b0}};
+		end
+	else if (Adr_in[31:16] == DATA && (Adr_in[15:0] == GPIO_1) )
 			begin // LEDS
-			gpio_port_out <= Data_in[7:0];
-			set_leds <= 1'B1;
+			Leds <= Data_in[7:0];
 			end
 	else if (Adr_in[31:16] == DATA && (Adr_in[15:0] == GPIO_2) )
 			begin // SWITCHES
-			Data_out[7:0] <= gpio_port_in;
-			set_leds <= 1'B0;
+			Leds <= Leds;
 			end
 	else
 			begin //??
-			Data_out <= 0;
-			gpio_port_out <= 0;
-			set_leds <= 1'B0;
+			Leds <= Leds;
 			end
 
 	end
-
+	
+	assign Data_out[31:0] = {24'b0000_0000_0000_0000_0000_0000,switches[7:0]};
 
 endmodule
 

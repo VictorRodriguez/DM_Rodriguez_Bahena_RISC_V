@@ -1,5 +1,5 @@
 Analysis & Synthesis report for riscv_factorial
-Mon Mar 28 11:26:39 2022
+Sun Apr  3 19:57:05 2022
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -15,29 +15,29 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis DSP Block Usage Summary
   9. State Machine - |riscv_factorial|riscv_core:riscv_core_|FSM_riscv:FSM_riscv|STATE
- 10. User-Specified and Inferred Latches
- 11. Registers Removed During Synthesis
- 12. General Register Statistics
- 13. Inverted Register Statistics
- 14. Multiplexer Restructuring Statistics (Restructuring Performed)
- 15. Parameter Settings for User Entity Instance: riscv_core:riscv_core_|register_pc_n:PC_register
- 16. Parameter Settings for User Entity Instance: riscv_core:riscv_core_|register_pc_n:PC_register_b
- 17. Parameter Settings for User Entity Instance: riscv_core:riscv_core_|mux_2_1:mux_2_1_PC_ALUOut
- 18. Parameter Settings for User Entity Instance: riscv_core:riscv_core_|register_n:instruction_register
- 19. Parameter Settings for User Entity Instance: riscv_core:riscv_core_|register_n:data_register
- 20. Parameter Settings for User Entity Instance: riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data
- 21. Parameter Settings for User Entity Instance: riscv_core:riscv_core_|register_n:A_register
- 22. Parameter Settings for User Entity Instance: riscv_core:riscv_core_|register_n:B_register
- 23. Parameter Settings for User Entity Instance: riscv_core:riscv_core_|mux_4_1:mux_4_1_PC_A
- 24. Parameter Settings for User Entity Instance: riscv_core:riscv_core_|mux_4_1:mux_4_1
- 25. Parameter Settings for User Entity Instance: riscv_core:riscv_core_|ALU:ALU
- 26. Parameter Settings for User Entity Instance: riscv_core:riscv_core_|register_n:ALU_result_register
- 27. Parameter Settings for User Entity Instance: riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_result
- 28. Parameter Settings for User Entity Instance: rom_module:rom_module_
- 29. Parameter Settings for User Entity Instance: ram_module:ram_module_
- 30. Parameter Settings for User Entity Instance: register_n:leds_reg
- 31. Parameter Settings for User Entity Instance: Heard_Bit:design_monitor
- 32. Port Connectivity Checks: "Heard_Bit:design_monitor"
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: riscv_core:riscv_core_|register_pc_n:PC_register
+ 15. Parameter Settings for User Entity Instance: riscv_core:riscv_core_|register_pc_n:PC_register_b
+ 16. Parameter Settings for User Entity Instance: riscv_core:riscv_core_|mux_2_1:mux_2_1_PC_ALUOut
+ 17. Parameter Settings for User Entity Instance: riscv_core:riscv_core_|register_n:instruction_register
+ 18. Parameter Settings for User Entity Instance: riscv_core:riscv_core_|register_n:data_register
+ 19. Parameter Settings for User Entity Instance: riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data
+ 20. Parameter Settings for User Entity Instance: riscv_core:riscv_core_|register_n:A_register
+ 21. Parameter Settings for User Entity Instance: riscv_core:riscv_core_|register_n:B_register
+ 22. Parameter Settings for User Entity Instance: riscv_core:riscv_core_|mux_4_1:mux_4_1_PC_A
+ 23. Parameter Settings for User Entity Instance: riscv_core:riscv_core_|mux_4_1:mux_4_1
+ 24. Parameter Settings for User Entity Instance: riscv_core:riscv_core_|ALU:ALU
+ 25. Parameter Settings for User Entity Instance: riscv_core:riscv_core_|register_n:ALU_result_register
+ 26. Parameter Settings for User Entity Instance: riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_result
+ 27. Parameter Settings for User Entity Instance: rom_module:rom_module_
+ 28. Parameter Settings for User Entity Instance: ram_module:ram_module_
+ 29. Parameter Settings for User Entity Instance: Heard_Bit:clk_timer
+ 30. Parameter Settings for User Entity Instance: Heard_Bit:design_monitor
+ 31. Port Connectivity Checks: "Heard_Bit:design_monitor"
+ 32. Port Connectivity Checks: "Heard_Bit:clk_timer"
  33. Port Connectivity Checks: "rom_module:rom_module_"
  34. Port Connectivity Checks: "peripherals_control_unit:peripherals_control_unit_"
  35. Port Connectivity Checks: "riscv_core:riscv_core_|register_n:ALU_result_register"
@@ -78,13 +78,13 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Mar 28 11:26:39 2022       ;
+; Analysis & Synthesis Status     ; Successful - Sun Apr  3 19:57:05 2022       ;
 ; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                   ; riscv_factorial                             ;
 ; Top-level Entity Name           ; riscv_factorial                             ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 2293                                        ;
+; Total registers                 ; 2308                                        ;
 ; Total pins                      ; 19                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
@@ -107,6 +107,7 @@ https://fpgasoftware.intel.com/eula.
 ; Top-level entity name                                                           ; riscv_factorial    ; riscv_factorial    ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
+; Maximum processors allowed for parallel compilation                             ; All                ; All                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
 ; Enable compact report table                                                     ; Off                ; Off                ;
 ; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
@@ -198,9 +199,9 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.1%      ;
-;     Processor 3            ;   0.1%      ;
-;     Processor 4            ;   0.1%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -231,31 +232,31 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------+-----------------+------------------------+------------------------------------------------------------------------------+---------+
 
 
-+--------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                          ;
-+---------------------------------------------+----------------------------------------+
-; Resource                                    ; Usage                                  ;
-+---------------------------------------------+----------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 2065                                   ;
-;                                             ;                                        ;
-; Combinational ALUT usage for logic          ; 2096                                   ;
-;     -- 7 input functions                    ; 259                                    ;
-;     -- 6 input functions                    ; 954                                    ;
-;     -- 5 input functions                    ; 284                                    ;
-;     -- 4 input functions                    ; 202                                    ;
-;     -- <=3 input functions                  ; 397                                    ;
-;                                             ;                                        ;
-; Dedicated logic registers                   ; 2293                                   ;
-;                                             ;                                        ;
-; I/O pins                                    ; 19                                     ;
-;                                             ;                                        ;
-; Total DSP Blocks                            ; 2                                      ;
-;                                             ;                                        ;
-; Maximum fan-out node                        ; Heard_Bit:design_monitor|heard_bit_out ;
-; Maximum fan-out                             ; 2270                                   ;
-; Total fan-out                               ; 19040                                  ;
-; Average fan-out                             ; 4.30                                   ;
-+---------------------------------------------+----------------------------------------+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                     ;
++---------------------------------------------+-----------------------------------+
+; Resource                                    ; Usage                             ;
++---------------------------------------------+-----------------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 2064                              ;
+;                                             ;                                   ;
+; Combinational ALUT usage for logic          ; 2080                              ;
+;     -- 7 input functions                    ; 259                               ;
+;     -- 6 input functions                    ; 944                               ;
+;     -- 5 input functions                    ; 282                               ;
+;     -- 4 input functions                    ; 212                               ;
+;     -- <=3 input functions                  ; 383                               ;
+;                                             ;                                   ;
+; Dedicated logic registers                   ; 2308                              ;
+;                                             ;                                   ;
+; I/O pins                                    ; 19                                ;
+;                                             ;                                   ;
+; Total DSP Blocks                            ; 2                                 ;
+;                                             ;                                   ;
+; Maximum fan-out node                        ; Heard_Bit:clk_timer|heard_bit_out ;
+; Maximum fan-out                             ; 2269                              ;
+; Total fan-out                               ; 19022                             ;
+; Average fan-out                             ; 4.30                              ;
++---------------------------------------------+-----------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -263,22 +264,22 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------+--------------------------+--------------+
 ; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                         ; Entity Name              ; Library Name ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------+--------------------------+--------------+
-; |riscv_factorial                                        ; 2096 (0)            ; 2293 (0)                  ; 0                 ; 2          ; 19   ; 0            ; |riscv_factorial                                                            ; riscv_factorial          ; work         ;
+; |riscv_factorial                                        ; 2080 (0)            ; 2308 (0)                  ; 0                 ; 2          ; 19   ; 0            ; |riscv_factorial                                                            ; riscv_factorial          ; work         ;
+;    |Heard_Bit:clk_timer|                                ; 18 (18)             ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|Heard_Bit:clk_timer                                        ; Heard_Bit                ; work         ;
 ;    |Heard_Bit:design_monitor|                           ; 30 (30)             ; 25 (25)                   ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|Heard_Bit:design_monitor                                   ; Heard_Bit                ; work         ;
-;    |gpio:gpio_|                                         ; 49 (49)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|gpio:gpio_                                                 ; gpio                     ; work         ;
-;    |peripherals_control_unit:peripherals_control_unit_| ; 71 (71)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|peripherals_control_unit:peripherals_control_unit_         ; peripherals_control_unit ; work         ;
-;    |ram_module:ram_module_|                             ; 325 (325)           ; 1024 (1024)               ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|ram_module:ram_module_                                     ; ram_module               ; work         ;
-;    |register_n:leds_reg|                                ; 0 (0)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|register_n:leds_reg                                        ; register_n               ; work         ;
-;    |riscv_core:riscv_core_|                             ; 1610 (2)            ; 1236 (0)                  ; 0                 ; 2          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_                                     ; riscv_core               ; work         ;
-;       |ALU:ALU|                                         ; 561 (561)           ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|ALU:ALU                             ; ALU                      ; work         ;
-;       |FSM_riscv:FSM_riscv|                             ; 39 (39)             ; 20 (20)                   ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|FSM_riscv:FSM_riscv                 ; FSM_riscv                ; work         ;
-;       |aludec:aludec|                                   ; 11 (11)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|aludec:aludec                       ; aludec                   ; work         ;
+;    |gpio:gpio_|                                         ; 3 (3)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|gpio:gpio_                                                 ; gpio                     ; work         ;
+;    |peripherals_control_unit:peripherals_control_unit_| ; 82 (82)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|peripherals_control_unit:peripherals_control_unit_         ; peripherals_control_unit ; work         ;
+;    |ram_module:ram_module_|                             ; 324 (324)           ; 1024 (1024)               ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|ram_module:ram_module_                                     ; ram_module               ; work         ;
+;    |riscv_core:riscv_core_|                             ; 1611 (2)            ; 1236 (0)                  ; 0                 ; 2          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_                                     ; riscv_core               ; work         ;
+;       |ALU:ALU|                                         ; 557 (557)           ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|ALU:ALU                             ; ALU                      ; work         ;
+;       |FSM_riscv:FSM_riscv|                             ; 42 (42)             ; 20 (20)                   ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|FSM_riscv:FSM_riscv                 ; FSM_riscv                ; work         ;
+;       |aludec:aludec|                                   ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|aludec:aludec                       ; aludec                   ; work         ;
 ;       |imm_gen:imm_gen|                                 ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|imm_gen:imm_gen                     ; imm_gen                  ; work         ;
 ;       |mux_2_1:mux_2_1_ALU_data|                        ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data            ; mux_2_1                  ; work         ;
 ;       |mux_2_1:mux_2_1_ALU_result|                      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_result          ; mux_2_1                  ; work         ;
-;       |mux_2_1:mux_2_1_PC_ALUOut|                       ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|mux_2_1:mux_2_1_PC_ALUOut           ; mux_2_1                  ; work         ;
+;       |mux_2_1:mux_2_1_PC_ALUOut|                       ; 15 (15)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|mux_2_1:mux_2_1_PC_ALUOut           ; mux_2_1                  ; work         ;
 ;       |mux_4_1:mux_4_1_PC_A|                            ; 33 (33)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|mux_4_1:mux_4_1_PC_A                ; mux_4_1                  ; work         ;
-;       |mux_4_1:mux_4_1|                                 ; 119 (119)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|mux_4_1:mux_4_1                     ; mux_4_1                  ; work         ;
+;       |mux_4_1:mux_4_1|                                 ; 123 (123)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|mux_4_1:mux_4_1                     ; mux_4_1                  ; work         ;
 ;       |register_file:register_file_1|                   ; 767 (767)           ; 992 (992)                 ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|register_file:register_file_1       ; register_file            ; work         ;
 ;       |register_n:ALU_result_register|                  ; 0 (0)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|register_n:ALU_result_register      ; register_n               ; work         ;
 ;       |register_n:A_register|                           ; 0 (0)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|register_n:A_register               ; register_n               ; work         ;
@@ -288,7 +289,7 @@ https://fpgasoftware.intel.com/eula.
 ;       |register_pc_n:PC_register_b|                     ; 0 (0)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|register_pc_n:PC_register_b         ; register_pc_n            ; work         ;
 ;       |register_pc_n:PC_register|                       ; 0 (0)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|register_pc_n:PC_register           ; register_pc_n            ; work         ;
 ;       |sign_extend_riscv:sign_extend_riscv|             ; 19 (19)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|sign_extend_riscv:sign_extend_riscv ; sign_extend_riscv        ; work         ;
-;    |rom_module:rom_module_|                             ; 11 (11)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|rom_module:rom_module_                                     ; rom_module               ; work         ;
+;    |rom_module:rom_module_|                             ; 12 (12)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|rom_module:rom_module_                                     ; rom_module               ; work         ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------+--------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -337,69 +338,43 @@ Encoding Type:  One-Hot
 +-----------------------+------------+------------------+------------------+----------------------+-----------------+-----------------+---------------+-------------------+------------------+------------------+-------------------+-----------------------+--------------------+----------------------+---------------+-----------------+----------------------+----------------+---------------+--------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                        ;
-+-----------------------------------------------------+-----------------------------+------------------------+
-; Latch Name                                          ; Latch Enable Signal         ; Free of Timing Hazards ;
-+-----------------------------------------------------+-----------------------------+------------------------+
-; gpio:gpio_|gpio_port_out[0]                         ; gpio:gpio_|gpio_port_out[7] ; yes                    ;
-; gpio:gpio_|gpio_port_out[1]                         ; gpio:gpio_|gpio_port_out[7] ; yes                    ;
-; gpio:gpio_|gpio_port_out[2]                         ; gpio:gpio_|gpio_port_out[7] ; yes                    ;
-; gpio:gpio_|gpio_port_out[3]                         ; gpio:gpio_|gpio_port_out[7] ; yes                    ;
-; gpio:gpio_|gpio_port_out[4]                         ; gpio:gpio_|gpio_port_out[7] ; yes                    ;
-; gpio:gpio_|gpio_port_out[5]                         ; gpio:gpio_|gpio_port_out[7] ; yes                    ;
-; gpio:gpio_|gpio_port_out[6]                         ; gpio:gpio_|gpio_port_out[7] ; yes                    ;
-; gpio:gpio_|gpio_port_out[7]                         ; gpio:gpio_|gpio_port_out[7] ; yes                    ;
-; gpio:gpio_|Data_out[6]                              ; gpio:gpio_|set_leds         ; yes                    ;
-; gpio:gpio_|Data_out[5]                              ; gpio:gpio_|set_leds         ; yes                    ;
-; gpio:gpio_|Data_out[3]                              ; gpio:gpio_|set_leds         ; yes                    ;
-; gpio:gpio_|Data_out[2]                              ; gpio:gpio_|set_leds         ; yes                    ;
-; gpio:gpio_|Data_out[0]                              ; gpio:gpio_|set_leds         ; yes                    ;
-; gpio:gpio_|Data_out[1]                              ; gpio:gpio_|set_leds         ; yes                    ;
-; gpio:gpio_|Data_out[4]                              ; gpio:gpio_|set_leds         ; yes                    ;
-; gpio:gpio_|Data_out[7]                              ; gpio:gpio_|set_leds         ; yes                    ;
-; Number of user-specified and inferred latches = 16  ;                             ;                        ;
-+-----------------------------------------------------+-----------------------------+------------------------+
-Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
-
-
 +---------------------------------------------------------------------------------------------------------------+
 ; Registers Removed During Synthesis                                                                            ;
 +-----------------------------------------------------------------+---------------------------------------------+
 ; Register name                                                   ; Reason for Removal                          ;
 +-----------------------------------------------------------------+---------------------------------------------+
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[0][0]  ; Stuck at GND due to stuck port clock_enable ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[0][23] ; Stuck at GND due to stuck port clock_enable ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[0][31] ; Stuck at GND due to stuck port clock_enable ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[0][30] ; Stuck at GND due to stuck port clock_enable ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[0][29] ; Stuck at GND due to stuck port clock_enable ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[0][28] ; Stuck at GND due to stuck port clock_enable ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[0][27] ; Stuck at GND due to stuck port clock_enable ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[0][26] ; Stuck at GND due to stuck port clock_enable ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[0][25] ; Stuck at GND due to stuck port clock_enable ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[0][24] ; Stuck at GND due to stuck port clock_enable ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[0][22] ; Stuck at GND due to stuck port clock_enable ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[0][21] ; Stuck at GND due to stuck port clock_enable ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[0][20] ; Stuck at GND due to stuck port clock_enable ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[0][19] ; Stuck at GND due to stuck port clock_enable ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[0][18] ; Stuck at GND due to stuck port clock_enable ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[0][17] ; Stuck at GND due to stuck port clock_enable ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[0][1]  ; Stuck at GND due to stuck port clock_enable ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[0][2]  ; Stuck at GND due to stuck port clock_enable ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[0][3]  ; Stuck at GND due to stuck port clock_enable ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[0][4]  ; Stuck at GND due to stuck port clock_enable ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[0][5]  ; Stuck at GND due to stuck port clock_enable ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[0][6]  ; Stuck at GND due to stuck port clock_enable ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[0][7]  ; Stuck at GND due to stuck port clock_enable ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[0][16] ; Stuck at GND due to stuck port clock_enable ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[0][15] ; Stuck at GND due to stuck port clock_enable ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[0][14] ; Stuck at GND due to stuck port clock_enable ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[0][13] ; Stuck at GND due to stuck port clock_enable ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[0][12] ; Stuck at GND due to stuck port clock_enable ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[0][11] ; Stuck at GND due to stuck port clock_enable ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[0][8]  ; Stuck at GND due to stuck port clock_enable ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[0][10] ; Stuck at GND due to stuck port clock_enable ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[0][9]  ; Stuck at GND due to stuck port clock_enable ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[0][8]  ; Stuck at GND due to stuck port clock_enable ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[0][7]  ; Stuck at GND due to stuck port clock_enable ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[0][6]  ; Stuck at GND due to stuck port clock_enable ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[0][5]  ; Stuck at GND due to stuck port clock_enable ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[0][4]  ; Stuck at GND due to stuck port clock_enable ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[0][3]  ; Stuck at GND due to stuck port clock_enable ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[0][2]  ; Stuck at GND due to stuck port clock_enable ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[0][1]  ; Stuck at GND due to stuck port clock_enable ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[0][17] ; Stuck at GND due to stuck port clock_enable ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[0][18] ; Stuck at GND due to stuck port clock_enable ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[0][13] ; Stuck at GND due to stuck port clock_enable ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[0][14] ; Stuck at GND due to stuck port clock_enable ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[0][15] ; Stuck at GND due to stuck port clock_enable ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[0][21] ; Stuck at GND due to stuck port clock_enable ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[0][20] ; Stuck at GND due to stuck port clock_enable ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[0][22] ; Stuck at GND due to stuck port clock_enable ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[0][19] ; Stuck at GND due to stuck port clock_enable ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[0][23] ; Stuck at GND due to stuck port clock_enable ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[0][25] ; Stuck at GND due to stuck port clock_enable ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[0][24] ; Stuck at GND due to stuck port clock_enable ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[0][26] ; Stuck at GND due to stuck port clock_enable ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[0][27] ; Stuck at GND due to stuck port clock_enable ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[0][28] ; Stuck at GND due to stuck port clock_enable ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[0][29] ; Stuck at GND due to stuck port clock_enable ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[0][30] ; Stuck at GND due to stuck port clock_enable ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[0][31] ; Stuck at GND due to stuck port clock_enable ;
 ; riscv_core:riscv_core_|FSM_riscv:FSM_riscv|STATE~19             ; Lost fanout                                 ;
 ; riscv_core:riscv_core_|FSM_riscv:FSM_riscv|STATE~20             ; Lost fanout                                 ;
 ; riscv_core:riscv_core_|FSM_riscv:FSM_riscv|STATE~21             ; Lost fanout                                 ;
@@ -415,10 +390,10 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 2293  ;
-; Number of registers using Synchronous Clear  ; 24    ;
+; Total registers                              ; 2308  ;
+; Number of registers using Synchronous Clear  ; 38    ;
 ; Number of registers using Synchronous Load   ; 31    ;
-; Number of registers using Asynchronous Clear ; 1269  ;
+; Number of registers using Asynchronous Clear ; 1284  ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 2120  ;
 ; Number of registers using Preset             ; 0     ;
@@ -432,34 +407,34 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +-----------------------------------------------------------------+---------+
 ; riscv_core:riscv_core_|register_pc_n:PC_register|Data_reg[22]   ; 4       ;
 ; riscv_core:riscv_core_|register_pc_n:PC_register_b|Data_reg[22] ; 1       ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[2][25] ; 2       ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[2][4]  ; 2       ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[2][5]  ; 2       ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[2][15] ; 2       ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[2][17] ; 2       ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[2][18] ; 2       ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[2][14] ; 2       ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[2][19] ; 2       ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[2][8]  ; 2       ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[2][11] ; 2       ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[2][22] ; 2       ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[2][24] ; 2       ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[2][21] ; 2       ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[2][20] ; 2       ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[2][23] ; 2       ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[2][30] ; 2       ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[2][29] ; 2       ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[2][28] ; 2       ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[2][27] ; 2       ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[2][26] ; 2       ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[2][16] ; 2       ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[2][7]  ; 2       ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[2][13] ; 2       ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[2][6]  ; 2       ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[2][10] ; 2       ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[2][9]  ; 2       ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[2][2]  ; 2       ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[2][3]  ; 2       ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[2][4]  ; 2       ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[2][5]  ; 2       ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[2][6]  ; 2       ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[2][7]  ; 2       ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[2][18] ; 2       ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[2][17] ; 2       ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[2][15] ; 2       ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[2][14] ; 2       ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[2][8]  ; 2       ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[2][11] ; 2       ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[2][27] ; 2       ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[2][28] ; 2       ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[2][29] ; 2       ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[2][30] ; 2       ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[2][21] ; 2       ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[2][20] ; 2       ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[2][22] ; 2       ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[2][19] ; 2       ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[2][23] ; 2       ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[2][25] ; 2       ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[2][24] ; 2       ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[2][26] ; 2       ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[2][16] ; 2       ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[2][13] ; 2       ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[2][10] ; 2       ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[2][9]  ; 2       ;
 ; Total number of inverted registers = 30                         ;         ;
 +-----------------------------------------------------------------+---------+
 
@@ -469,9 +444,9 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                      ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------+
-; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; Yes        ; |riscv_factorial|riscv_core:riscv_core_|register_n:B_register|Data_reg[18]      ;
-; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; Yes        ; |riscv_factorial|riscv_core:riscv_core_|register_n:A_register|Data_reg[30]      ;
-; 3:1                ; 20 bits   ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|imm_gen:imm_gen|Selector2               ;
+; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; Yes        ; |riscv_factorial|riscv_core:riscv_core_|register_n:B_register|Data_reg[4]       ;
+; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; Yes        ; |riscv_factorial|riscv_core:riscv_core_|register_n:A_register|Data_reg[15]      ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|imm_gen:imm_gen|Selector1               ;
 ; 3:1                ; 17 bits   ; 34 LEs        ; 34 LEs               ; 0 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|FSM_riscv:FSM_riscv|STATE               ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |riscv_factorial|peripherals_control_unit:peripherals_control_unit_|Adr_out[0]  ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|ALU:ALU|ShiftLeft0                      ;
@@ -482,7 +457,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|FSM_riscv:FSM_riscv|STATE               ;
 ; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|mux_4_1:mux_4_1_PC_A|Y[3]               ;
 ; 4:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |riscv_factorial|peripherals_control_unit:peripherals_control_unit_|Data_out[9] ;
-; 4:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |riscv_factorial|peripherals_control_unit:peripherals_control_unit_|Adr_out[2]  ;
+; 4:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |riscv_factorial|peripherals_control_unit:peripherals_control_unit_|Data_out[7] ;
 ; 18:1               ; 15 bits   ; 180 LEs       ; 105 LEs              ; 75 LEs                 ; No         ; |riscv_factorial|riscv_core:riscv_core_|ALU:ALU|Mux31                           ;
 ; 23:1               ; 12 bits   ; 180 LEs       ; 120 LEs              ; 60 LEs                 ; No         ; |riscv_factorial|riscv_core:riscv_core_|ALU:ALU|Mux13                           ;
 ; 13:1               ; 2 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|mux_4_1:mux_4_1|Y[10]                   ;
@@ -647,12 +622,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: register_n:leds_reg ;
-+----------------+-------+-----------------------------------------+
-; Parameter Name ; Value ; Type                                    ;
-+----------------+-------+-----------------------------------------+
-; n              ; 8     ; Signed Integer                          ;
-+----------------+-------+-----------------------------------------+
+; Parameter Settings for User Entity Instance: Heard_Bit:clk_timer ;
++--------------------+-------+-------------------------------------+
+; Parameter Name     ; Value ; Type                                ;
++--------------------+-------+-------------------------------------+
+; Half_Period_Counts ; 10000 ; Signed Integer                      ;
++--------------------+-------+-------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -673,6 +648,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------+-------+----------+--------------------------+
 ; enable ; Input ; Info     ; Stuck at VCC             ;
 +--------+-------+----------+--------------------------+
+
+
++-------------------------------------------------+
+; Port Connectivity Checks: "Heard_Bit:clk_timer" ;
++--------+-------+----------+---------------------+
+; Port   ; Type  ; Severity ; Details             ;
++--------+-------+----------+---------------------+
+; enable ; Input ; Info     ; Stuck at VCC        ;
++--------+-------+----------+---------------------+
 
 
 +----------------------------------------------------+
@@ -777,33 +761,33 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 2293                        ;
-;     CLR               ; 149                         ;
-;     CLR SCLR          ; 24                          ;
+; arriav_ff             ; 2308                        ;
+;     CLR               ; 150                         ;
+;     CLR SCLR          ; 38                          ;
 ;     ENA               ; 1024                        ;
 ;     ENA CLR           ; 1065                        ;
 ;     ENA CLR SLD       ; 31                          ;
-; arriav_lcell_comb     ; 2096                        ;
-;     arith             ; 239                         ;
+; arriav_lcell_comb     ; 2080                        ;
+;     arith             ; 253                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 86                          ;
+;         1 data inputs ; 100                         ;
 ;         2 data inputs ; 43                          ;
 ;         4 data inputs ; 43                          ;
 ;         5 data inputs ; 66                          ;
 ;     extend            ; 259                         ;
 ;         7 data inputs ; 259                         ;
-;     normal            ; 1598                        ;
+;     normal            ; 1568                        ;
 ;         1 data inputs ; 29                          ;
-;         2 data inputs ; 59                          ;
-;         3 data inputs ; 179                         ;
-;         4 data inputs ; 159                         ;
-;         5 data inputs ; 218                         ;
-;         6 data inputs ; 954                         ;
+;         2 data inputs ; 49                          ;
+;         3 data inputs ; 161                         ;
+;         4 data inputs ; 169                         ;
+;         5 data inputs ; 216                         ;
+;         6 data inputs ; 944                         ;
 ; arriav_mac            ; 2                           ;
 ; boundary_port         ; 19                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 14.00                       ;
-; Average LUT depth     ; 5.77                        ;
+; Max LUT depth         ; 13.00                       ;
+; Average LUT depth     ; 5.66                        ;
 +-----------------------+-----------------------------+
 
 
@@ -822,18 +806,11 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Mon Mar 28 11:26:27 2022
+    Info: Processing started: Sun Apr  3 19:56:53 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off riscv_factorial -c riscv_factorial
-Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file Sources/zero_extend_shamt.v
-    Info (12023): Found entity 1: zero_extend_shamt File: /home/vmrod/devel/quartus/riscv_factorial/Sources/zero_extend_shamt.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file Sources/zero_extend.v
-    Info (12023): Found entity 1: zero_extend File: /home/vmrod/devel/quartus/riscv_factorial/Sources/zero_extend.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file Sources/sign_extend_riscv.v
     Info (12023): Found entity 1: sign_extend_riscv File: /home/vmrod/devel/quartus/riscv_factorial/Sources/sign_extend_riscv.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file Sources/sign_extend.v
-    Info (12023): Found entity 1: sign_extend File: /home/vmrod/devel/quartus/riscv_factorial/Sources/sign_extend.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file Sources/rom_module.v
     Info (12023): Found entity 1: rom_module File: /home/vmrod/devel/quartus/riscv_factorial/Sources/rom_module.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file Sources/riscv_core.v
@@ -872,126 +849,47 @@ Info (12021): Found 1 design units, including 1 entities, in source file Sources
     Info (12023): Found entity 1: riscv_factorial File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_factorial.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file simulation/modelsim/riscv_factorial_TB.v
     Info (12023): Found entity 1: riscv_factorial_TB File: /home/vmrod/devel/quartus/riscv_factorial/simulation/modelsim/riscv_factorial_TB.v Line: 3
-Warning (10236): Verilog HDL Implicit Net warning at riscv_core.v(49): created implicit net for "PCWriteCond_NE" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v Line: 49
 Info (12127): Elaborating entity "riscv_factorial" for the top level hierarchy
 Info (12128): Elaborating entity "riscv_core" for hierarchy "riscv_core:riscv_core_" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_factorial.v Line: 35
-Info (12128): Elaborating entity "FSM_riscv" for hierarchy "riscv_core:riscv_core_|FSM_riscv:FSM_riscv" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v Line: 62
+Info (12128): Elaborating entity "FSM_riscv" for hierarchy "riscv_core:riscv_core_|FSM_riscv:FSM_riscv" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v Line: 63
 Info (10264): Verilog HDL Case Statement information at FSM_riscv.v(169): all case item expressions in this case statement are onehot File: /home/vmrod/devel/quartus/riscv_factorial/Sources/FSM_riscv.v Line: 169
-Info (12128): Elaborating entity "register_pc_n" for hierarchy "riscv_core:riscv_core_|register_pc_n:PC_register" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v Line: 86
-Info (12128): Elaborating entity "mux_2_1" for hierarchy "riscv_core:riscv_core_|mux_2_1:mux_2_1_PC_ALUOut" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v Line: 91
-Info (12128): Elaborating entity "register_n" for hierarchy "riscv_core:riscv_core_|register_n:instruction_register" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v Line: 101
-Info (12128): Elaborating entity "register_file" for hierarchy "riscv_core:riscv_core_|register_file:register_file_1" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v Line: 115
+Info (12128): Elaborating entity "register_pc_n" for hierarchy "riscv_core:riscv_core_|register_pc_n:PC_register" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v Line: 87
+Info (12128): Elaborating entity "mux_2_1" for hierarchy "riscv_core:riscv_core_|mux_2_1:mux_2_1_PC_ALUOut" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v Line: 92
+Info (12128): Elaborating entity "register_n" for hierarchy "riscv_core:riscv_core_|register_n:instruction_register" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v Line: 102
+Info (12128): Elaborating entity "register_file" for hierarchy "riscv_core:riscv_core_|register_file:register_file_1" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v Line: 116
 Warning (10240): Verilog HDL Always Construct warning at register_file.v(40): inferring latch(es) for variable "i", which holds its previous value in one or more paths through the always construct File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_file.v Line: 40
-Info (12128): Elaborating entity "imm_gen" for hierarchy "riscv_core:riscv_core_|imm_gen:imm_gen" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v Line: 117
-Info (12128): Elaborating entity "sign_extend_riscv" for hierarchy "riscv_core:riscv_core_|sign_extend_riscv:sign_extend_riscv" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v Line: 119
-Info (12128): Elaborating entity "mux_4_1" for hierarchy "riscv_core:riscv_core_|mux_4_1:mux_4_1_PC_A" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v Line: 125
-Info (12128): Elaborating entity "aludec" for hierarchy "riscv_core:riscv_core_|aludec:aludec" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v Line: 130
-Info (12128): Elaborating entity "ALU" for hierarchy "riscv_core:riscv_core_|ALU:ALU" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v Line: 140
-Warning (10764): Verilog HDL warning at ALU.v(58): converting signed shift amount to unsigned File: /home/vmrod/devel/quartus/riscv_factorial/Sources/ALU.v Line: 58
-Warning (10240): Verilog HDL Always Construct warning at ALU.v(23): inferring latch(es) for variable "carry_out", which holds its previous value in one or more paths through the always construct File: /home/vmrod/devel/quartus/riscv_factorial/Sources/ALU.v Line: 23
-Warning (10240): Verilog HDL Always Construct warning at ALU.v(23): inferring latch(es) for variable "overflow", which holds its previous value in one or more paths through the always construct File: /home/vmrod/devel/quartus/riscv_factorial/Sources/ALU.v Line: 23
-Info (10041): Inferred latch for "overflow" at ALU.v(23) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/ALU.v Line: 23
-Info (10041): Inferred latch for "carry_out" at ALU.v(23) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/ALU.v Line: 23
+Info (12128): Elaborating entity "imm_gen" for hierarchy "riscv_core:riscv_core_|imm_gen:imm_gen" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v Line: 118
+Info (12128): Elaborating entity "sign_extend_riscv" for hierarchy "riscv_core:riscv_core_|sign_extend_riscv:sign_extend_riscv" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v Line: 120
+Info (12128): Elaborating entity "mux_4_1" for hierarchy "riscv_core:riscv_core_|mux_4_1:mux_4_1_PC_A" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v Line: 126
+Info (12128): Elaborating entity "aludec" for hierarchy "riscv_core:riscv_core_|aludec:aludec" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v Line: 131
+Info (12128): Elaborating entity "ALU" for hierarchy "riscv_core:riscv_core_|ALU:ALU" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v Line: 141
+Warning (10764): Verilog HDL warning at ALU.v(68): converting signed shift amount to unsigned File: /home/vmrod/devel/quartus/riscv_factorial/Sources/ALU.v Line: 68
 Info (12128): Elaborating entity "peripherals_control_unit" for hierarchy "peripherals_control_unit:peripherals_control_unit_" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_factorial.v Line: 51
 Info (12128): Elaborating entity "rom_module" for hierarchy "rom_module:rom_module_" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_factorial.v Line: 61
 Warning (10850): Verilog HDL warning at rom_module.v(15): number of words (21) in memory file does not match the number of elements in the address range [0:31] File: /home/vmrod/devel/quartus/riscv_factorial/Sources/rom_module.v Line: 15
 Info (12128): Elaborating entity "ram_module" for hierarchy "ram_module:ram_module_" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_factorial.v Line: 71
 Warning (10850): Verilog HDL warning at ram_module.v(15): number of words (255) in memory file does not match the number of elements in the address range [0:31] File: /home/vmrod/devel/quartus/riscv_factorial/Sources/ram_module.v Line: 15
-Info (12128): Elaborating entity "gpio" for hierarchy "gpio:gpio_" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_factorial.v Line: 84
-Warning (10240): Verilog HDL Always Construct warning at gpio.v(22): inferring latch(es) for variable "gpio_port_out", which holds its previous value in one or more paths through the always construct File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Warning (10240): Verilog HDL Always Construct warning at gpio.v(22): inferring latch(es) for variable "Data_out", which holds its previous value in one or more paths through the always construct File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "Data_out[0]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "Data_out[1]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "Data_out[2]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "Data_out[3]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "Data_out[4]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "Data_out[5]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "Data_out[6]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "Data_out[7]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "Data_out[8]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "Data_out[9]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "Data_out[10]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "Data_out[11]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "Data_out[12]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "Data_out[13]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "Data_out[14]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "Data_out[15]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "Data_out[16]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "Data_out[17]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "Data_out[18]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "Data_out[19]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "Data_out[20]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "Data_out[21]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "Data_out[22]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "Data_out[23]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "Data_out[24]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "Data_out[25]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "Data_out[26]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "Data_out[27]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "Data_out[28]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "Data_out[29]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "Data_out[30]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "Data_out[31]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "gpio_port_out[0]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "gpio_port_out[1]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "gpio_port_out[2]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "gpio_port_out[3]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "gpio_port_out[4]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "gpio_port_out[5]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "gpio_port_out[6]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (10041): Inferred latch for "gpio_port_out[7]" at gpio.v(22) File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-Info (12128): Elaborating entity "register_n" for hierarchy "register_n:leds_reg" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_factorial.v Line: 86
+Info (12128): Elaborating entity "gpio" for hierarchy "gpio:gpio_" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_factorial.v Line: 83
+Info (12128): Elaborating entity "Heard_Bit" for hierarchy "Heard_Bit:clk_timer" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_factorial.v Line: 86
 Info (12128): Elaborating entity "Heard_Bit" for hierarchy "Heard_Bit:design_monitor" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_factorial.v Line: 89
 Info (276014): Found 2 instances of uninferred RAM logic
     Info (276007): RAM logic "ram_module:ram_module_|ram" is uninferred due to asynchronous read logic File: /home/vmrod/devel/quartus/riscv_factorial/Sources/ram_module.v Line: 11
     Info (276004): RAM logic "rom_module:rom_module_|rom" is uninferred due to inappropriate RAM size File: /home/vmrod/devel/quartus/riscv_factorial/Sources/rom_module.v Line: 11
 Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "/home/vmrod/devel/quartus/riscv_factorial/db/riscv_factorial.ram0_rom_module_23378196.hdl.mif" contains "don't care" values -- overwriting them with 0s
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Warning (13012): Latch gpio:gpio_|gpio_port_out[0] has unsafe behavior File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal riscv_core:riscv_core_|register_pc_n:PC_register|Data_reg[23] File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_pc_n.v Line: 24
-Warning (13012): Latch gpio:gpio_|gpio_port_out[1] has unsafe behavior File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal riscv_core:riscv_core_|register_pc_n:PC_register|Data_reg[23] File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_pc_n.v Line: 24
-Warning (13012): Latch gpio:gpio_|gpio_port_out[2] has unsafe behavior File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal riscv_core:riscv_core_|register_pc_n:PC_register|Data_reg[23] File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_pc_n.v Line: 24
-Warning (13012): Latch gpio:gpio_|gpio_port_out[3] has unsafe behavior File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal riscv_core:riscv_core_|register_pc_n:PC_register|Data_reg[23] File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_pc_n.v Line: 24
-Warning (13012): Latch gpio:gpio_|gpio_port_out[4] has unsafe behavior File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal riscv_core:riscv_core_|register_pc_n:PC_register|Data_reg[23] File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_pc_n.v Line: 24
-Warning (13012): Latch gpio:gpio_|gpio_port_out[5] has unsafe behavior File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal riscv_core:riscv_core_|register_pc_n:PC_register|Data_reg[23] File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_pc_n.v Line: 24
-Warning (13012): Latch gpio:gpio_|gpio_port_out[6] has unsafe behavior File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal riscv_core:riscv_core_|register_pc_n:PC_register|Data_reg[23] File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_pc_n.v Line: 24
-Warning (13012): Latch gpio:gpio_|gpio_port_out[7] has unsafe behavior File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal riscv_core:riscv_core_|register_pc_n:PC_register|Data_reg[23] File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_pc_n.v Line: 24
-Warning (13012): Latch gpio:gpio_|Data_out[6] has unsafe behavior File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal riscv_core:riscv_core_|register_pc_n:PC_register|Data_reg[23] File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_pc_n.v Line: 24
-Warning (13012): Latch gpio:gpio_|Data_out[5] has unsafe behavior File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal riscv_core:riscv_core_|register_pc_n:PC_register|Data_reg[23] File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_pc_n.v Line: 24
-Warning (13012): Latch gpio:gpio_|Data_out[3] has unsafe behavior File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal riscv_core:riscv_core_|register_pc_n:PC_register|Data_reg[23] File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_pc_n.v Line: 24
-Warning (13012): Latch gpio:gpio_|Data_out[2] has unsafe behavior File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal riscv_core:riscv_core_|register_pc_n:PC_register|Data_reg[23] File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_pc_n.v Line: 24
-Warning (13012): Latch gpio:gpio_|Data_out[0] has unsafe behavior File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal riscv_core:riscv_core_|register_pc_n:PC_register|Data_reg[23] File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_pc_n.v Line: 24
-Warning (13012): Latch gpio:gpio_|Data_out[1] has unsafe behavior File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal riscv_core:riscv_core_|register_pc_n:PC_register|Data_reg[23] File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_pc_n.v Line: 24
-Warning (13012): Latch gpio:gpio_|Data_out[4] has unsafe behavior File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal riscv_core:riscv_core_|register_pc_n:PC_register|Data_reg[23] File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_pc_n.v Line: 24
-Warning (13012): Latch gpio:gpio_|Data_out[7] has unsafe behavior File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 22
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal riscv_core:riscv_core_|register_pc_n:PC_register|Data_reg[23] File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_pc_n.v Line: 24
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 5 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file /home/vmrod/devel/quartus/riscv_factorial/output_files/riscv_factorial.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 4272 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 4257 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 10 input pins
     Info (21059): Implemented 9 output pins
-    Info (21061): Implemented 4251 logic cells
+    Info (21061): Implemented 4236 logic cells
     Info (21062): Implemented 2 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 44 warnings
-    Info: Peak virtual memory: 762 megabytes
-    Info: Processing ended: Mon Mar 28 11:26:39 2022
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
+    Info: Peak virtual memory: 760 megabytes
+    Info: Processing ended: Sun Apr  3 19:57:05 2022
     Info: Elapsed time: 00:00:12
     Info: Total CPU time (on all processors): 00:00:21
 

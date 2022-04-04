@@ -1,0 +1,463 @@
+Design Assistant report for riscv_factorial
+Sun Apr  3 19:46:16 2022
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Design Assistant Summary
+  3. Parallel Compilation
+  4. Design Assistant Settings
+  5. Medium Violations
+  6. Information only Violations
+  7. Design Assistant Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------+
+; Design Assistant Summary                                                ;
++-----------------------------------+-------------------------------------+
+; Design Assistant Status           ; Analyzed - Sun Apr  3 19:46:16 2022 ;
+; Revision Name                     ; riscv_factorial                     ;
+; Top-level Entity Name             ; riscv_factorial                     ;
+; Family                            ; Cyclone V                           ;
+; Total Critical Violations         ; 0                                   ;
+; Total High Violations             ; 0                                   ;
+; Total Medium Violations           ; 2                                   ;
+; - Rule C104                       ; 1                                   ;
+; - Rule R102                       ; 1                                   ;
+; Total Information only Violations ; 219                                 ;
+; - Rule T101                       ; 169                                 ;
+; - Rule T102                       ; 50                                  ;
++-----------------------------------+-------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Design Assistant Settings                                                                                                                                                                ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+----+
+; Option                                                                                                                                                               ; Setting      ; To ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+----+
+; Design Assistant mode                                                                                                                                                ; Post-Fitting ;    ;
+; Threshold value for clock net not mapped to clock spines rule                                                                                                        ; 25           ;    ;
+; Minimum number of clock port feed by gated clocks                                                                                                                    ; 30           ;    ;
+; Minimum number of node fan-out                                                                                                                                       ; 30           ;    ;
+; Maximum number of nodes to report                                                                                                                                    ; 50           ;    ;
+; Rule C101: Gated clock should be implemented according to the Intel FPGA standard scheme                                                                             ; On           ;    ;
+; Rule C102: Logic cell should not be used to generate an inverted clock signal                                                                                        ; On           ;    ;
+; Rule C103: Gated clock does not feed at least a pre-defined number of clock ports to effectively save power                                                          ; On           ;    ;
+; Rule C104: Clock signal source should drive only clock input ports                                                                                                   ; On           ;    ;
+; Rule C105: Clock signal should be a global signal                                                                                                                    ; On           ;    ;
+; Rule C106: Clock signal source should not drive registers triggered by different clock edges                                                                         ; On           ;    ;
+; Rule R101: Combinational logic used as a reset signal should be synchronized                                                                                         ; On           ;    ;
+; Rule R102: External reset signals should be synchronized using two cascaded registers                                                                                ; On           ;    ;
+; Rule R103: External reset signal should be correctly synchronized                                                                                                    ; On           ;    ;
+; Rule R104: The reset signal that is generated in one clock domain and used in another clock domain should be correctly synchronized                                  ; On           ;    ;
+; Rule R105: The reset signal that is generated in one clock domain and used in another clock domain should be synchronized                                            ; On           ;    ;
+; Rule T101: Nodes with more than the specified number of fan-outs                                                                                                     ; On           ;    ;
+; Rule T102: Top nodes with the highest number of fan-outs                                                                                                             ; On           ;    ;
+; Rule A101: Design should not contain combinational loops                                                                                                             ; On           ;    ;
+; Rule A102: Register output should not drive its own control signal directly or through combinational logic                                                           ; On           ;    ;
+; Rule A103: Design should not contain delay chains                                                                                                                    ; On           ;    ;
+; Rule A104: Design should not contain ripple clock structures                                                                                                         ; On           ;    ;
+; Rule A105: Pulses should not be implemented asynchronously                                                                                                           ; On           ;    ;
+; Rule A106: Multiple pulses should not be generated in design                                                                                                         ; On           ;    ;
+; Rule A107: Design should not contain SR latches                                                                                                                      ; On           ;    ;
+; Rule A108: Design should not contain latches                                                                                                                         ; On           ;    ;
+; Rule S101: Output enable and input of the same tri-state node should not be driven by same signal source                                                             ; On           ;    ;
+; Rule S102: Synchronous port and asynchronous port of the same register should not be driven by the same signal source                                                ; On           ;    ;
+; Rule S103: More than one asynchronous port of a register should not be driven by the same signal source                                                              ; On           ;    ;
+; Rule S104: Clock port and any other port of a register should not be driven by the same signal source                                                                ; On           ;    ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains                                                                        ; On           ;    ;
+; Rule D102: Multiple data bits that are transferred across asynchronous clock domains are synchronized, but not all bits may be aligned in the receiving clock domain ; On           ;    ;
+; Rule D103: Data bits are not correctly synchronized when transferred between asynchronous clock domains                                                              ; On           ;    ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+----+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Medium Violations                                                                                                                                           ;
++---------------------------------------------------------------------------------------+---------------------------------------------------------------------+
+; Rule name                                                                             ; Name                                                                ;
++---------------------------------------------------------------------------------------+---------------------------------------------------------------------+
+; Rule C104: Clock signal source should drive only clock input ports                    ; Heard_Bit:design_monitor|heard_bit_out                              ;
+;  Clock ports destination node(s) list                                                 ; riscv_core:riscv_core_|register_pc_n:PC_register|Data_reg[3]        ;
+;  Clock ports destination node(s) list                                                 ; riscv_core:riscv_core_|FSM_riscv:FSM_riscv|STATE.BNE_STATE          ;
+;  Clock ports destination node(s) list                                                 ; riscv_core:riscv_core_|register_n:instruction_register|Data_reg[12] ;
+;  Clock ports destination node(s) list                                                 ; riscv_core:riscv_core_|FSM_riscv:FSM_riscv|STATE.HALT               ;
+;  Clock ports destination node(s) list                                                 ; riscv_core:riscv_core_|register_n:instruction_register|Data_reg[2]  ;
+;  Clock ports destination node(s) list                                                 ; riscv_core:riscv_core_|register_n:ALU_result_register|Data_reg[28]  ;
+;  Clock ports destination node(s) list                                                 ; riscv_core:riscv_core_|register_n:instruction_register|Data_reg[30] ;
+;  Clock ports destination node(s) list                                                 ; ram_module:ram_module_|ram~926                                      ;
+;  Clock ports destination node(s) list                                                 ; riscv_core:riscv_core_|register_pc_n:PC_register|Data_reg[2]        ;
+;  Clock ports destination node(s) list                                                 ; riscv_core:riscv_core_|register_n:ALU_result_register|Data_reg[2]   ;
+;  Non-clock ports destination node(s) list                                             ; Heard_Bit:design_monitor|heard_bit_out~0                            ;
+; Rule R102: External reset signals should be synchronized using two cascaded registers ; rst                                                                 ;
+;  Reset signal destination node(s) list                                                ; Heard_Bit:design_monitor|Delay_Count[8]                             ;
+;  Reset signal destination node(s) list                                                ; Heard_Bit:design_monitor|Delay_Count[7]                             ;
+;  Reset signal destination node(s) list                                                ; Heard_Bit:design_monitor|Delay_Count[21]                            ;
+;  Reset signal destination node(s) list                                                ; Heard_Bit:design_monitor|Delay_Count[20]                            ;
+;  Reset signal destination node(s) list                                                ; Heard_Bit:design_monitor|Delay_Count[19]                            ;
+;  Reset signal destination node(s) list                                                ; Heard_Bit:design_monitor|Delay_Count[18]                            ;
+;  Reset signal destination node(s) list                                                ; Heard_Bit:design_monitor|Delay_Count[17]                            ;
+;  Reset signal destination node(s) list                                                ; Heard_Bit:design_monitor|Delay_Count[15]                            ;
+;  Reset signal destination node(s) list                                                ; Heard_Bit:design_monitor|Delay_Count[14]                            ;
+;  Reset signal destination node(s) list                                                ; Heard_Bit:design_monitor|Delay_Count[13]                            ;
++---------------------------------------------------------------------------------------+---------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Information only Violations                                                                                                                                ;
++------------------------------------------------------------------+-------------------------------------------------------------------------------+---------+
+; Rule name                                                        ; Name                                                                          ; Fan-Out ;
++------------------------------------------------------------------+-------------------------------------------------------------------------------+---------+
+; Rule T101: Nodes with more than the specified number of fan-outs ; Heard_Bit:design_monitor|heard_bit_out                                        ; 2309    ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rst~inputCLKENA0                                                              ; 1310    ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|comb~1                                                 ; 70      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|FSM_riscv:FSM_riscv|IRWrite~0                          ; 37      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:instruction_register|Data_reg[2]            ; 44      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; ram_module:ram_module_|ram~2097                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; peripherals_control_unit:peripherals_control_unit_|Adr_out[0]~1               ; 158     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_4_1:mux_4_1_PC_A|Y[3]~0                            ; 58      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:B_register|Data_reg[1]                      ; 39      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_file:register_file_1|Decoder0~10              ; 36      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:B_register|Data_reg[11]                     ; 38      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:instruction_register|Data_reg[24]           ; 34      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; peripherals_control_unit:peripherals_control_unit_|Adr_out[1]~3               ; 299     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|FSM_riscv:FSM_riscv|STATE.MEM_WRITE                    ; 46      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:instruction_register|Data_reg[4]            ; 37      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; ram_module:ram_module_|ram~2083                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; peripherals_control_unit:peripherals_control_unit_|Adr_out[3]~8               ; 89      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:instruction_register|Data_reg[5]            ; 42      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; peripherals_control_unit:peripherals_control_unit_|Adr_out[4]~6               ; 91      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; peripherals_control_unit:peripherals_control_unit_|Data_out[7]~1              ; 35      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:instruction_register|Data_reg[3]            ; 31      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; peripherals_control_unit:peripherals_control_unit_|Adr_out[2]~5               ; 300     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:B_register|Data_reg[13]                     ; 35      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_file:register_file_1|Decoder0~25              ; 33      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:B_register|Data_reg[14]                     ; 38      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_file:register_file_1|Decoder0~30              ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:instruction_register|Data_reg[9]            ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:B_register|Data_reg[9]                      ; 34      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_file:register_file_1|Decoder0~6               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:B_register|Data_reg[8]                      ; 38      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:instruction_register|Data_reg[20]           ; 163     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; ram_module:ram_module_|ram~2093                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:B_register|Data_reg[20]                     ; 37      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data|Y[20]~20                      ; 31      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|FSM_riscv:FSM_riscv|STATE.MEM_WRITE_BACK               ; 33      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|aludec:aludec|Selector0~0                              ; 43      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:B_register|Data_reg[2]                      ; 40      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_file:register_file_1|Decoder0~14              ; 33      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:instruction_register|Data_reg[7]            ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:B_register|Data_reg[7]                      ; 38      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_file:register_file_1|Decoder0~18              ; 33      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:instruction_register|Data_reg[10]           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:B_register|Data_reg[10]                     ; 34      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:instruction_register|Data_reg[22]           ; 162     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:B_register|Data_reg[22]                     ; 36      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_file:register_file_1|Decoder0~19              ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data|Y[22]~21                      ; 31      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|sign_extend_riscv:sign_extend_riscv|Selector0~3        ; 45      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:B_register|Data_reg[6]                      ; 39      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:instruction_register|Data_reg[21]           ; 162     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:B_register|Data_reg[21]                     ; 36      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:instruction_register|Data_reg[23]           ; 162     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:B_register|Data_reg[23]                     ; 36      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_file:register_file_1|Decoder0~26              ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data|Y[23]~23                      ; 31      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_4_1:mux_4_1|Y~70                                   ; 60      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|FSM_riscv:FSM_riscv|WideOr12~1                         ; 42      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|FSM_riscv:FSM_riscv|WideOr17                           ; 37      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|FSM_riscv:FSM_riscv|WideOr12~0                         ; 139     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_file:register_file_1|Decoder0~15              ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_file:register_file_1|Decoder0~16              ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:instruction_register|Data_reg[17]           ; 162     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; ram_module:ram_module_|ram~2089                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:B_register|Data_reg[17]                     ; 34      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_file:register_file_1|Decoder0~7               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data|Y[17]~9                       ; 31      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:B_register|Data_reg[0]                      ; 39      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data|Y[0]~0                        ; 31      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|FSM_riscv:FSM_riscv|WideOr14                           ; 60      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:B_register|Data_reg[29]                     ; 36      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_file:register_file_1|Decoder0~29              ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data|Y[29]~17                      ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:instruction_register|Data_reg[16]~DUPLICATE ; 160     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:B_register|Data_reg[16]                     ; 39      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data|Y[16]~27                      ; 31      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:B_register|Data_reg[4]                      ; 40      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data|Y[4]~4                        ; 33      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_file:register_file_1|Decoder0~24              ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_file:register_file_1|Decoder0~28              ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_file:register_file_1|Decoder0~27              ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_file:register_file_1|Decoder0~23              ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_file:register_file_1|Decoder0~22              ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_file:register_file_1|Decoder0~32              ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_file:register_file_1|Decoder0~34              ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_file:register_file_1|Decoder0~31              ; 34      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_file:register_file_1|Decoder0~33              ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_file:register_file_1|Decoder0~4               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_file:register_file_1|Decoder0~3               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_file:register_file_1|Decoder0~1               ; 37      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_file:register_file_1|Decoder0~2               ; 33      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_file:register_file_1|Decoder0~8               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_file:register_file_1|Decoder0~5               ; 33      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_file:register_file_1|Decoder0~9               ; 33      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_file:register_file_1|Decoder0~11              ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_file:register_file_1|Decoder0~12              ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_file:register_file_1|Decoder0~13              ; 35      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:instruction_register|Data_reg[18]           ; 163     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:B_register|Data_reg[18]                     ; 37      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data|Y[18]~8                       ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:B_register|Data_reg[26]                     ; 36      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data|Y[26]~26                      ; 31      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:instruction_register|Data_reg[15]           ; 162     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:B_register|Data_reg[15]                     ; 37      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data|Y[15]~10                      ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:instruction_register|Data_reg[19]           ; 35      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:B_register|Data_reg[19]                     ; 37      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data|Y[19]~22                      ; 31      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_4_1:mux_4_1|Y[2]~118                               ; 34      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_4_1:mux_4_1|Y[1]~116                               ; 44      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data|Y[9]~31                       ; 31      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:B_register|Data_reg[28]                     ; 36      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data|Y[28]~16                      ; 31      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; ram_module:ram_module_|ram~2102                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; ram_module:ram_module_|ram~2099                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; ram_module:ram_module_|ram~2100                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; ram_module:ram_module_|ram~2103                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; ram_module:ram_module_|ram~2080                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; ram_module:ram_module_|ram~2084                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; ram_module:ram_module_|ram~2081                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; ram_module:ram_module_|ram~2110                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; ram_module:ram_module_|ram~2109                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; ram_module:ram_module_|ram~2108                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; ram_module:ram_module_|ram~2111                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; ram_module:ram_module_|ram~2094                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; ram_module:ram_module_|ram~2091                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; ram_module:ram_module_|ram~2092                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; ram_module:ram_module_|ram~2095                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; ram_module:ram_module_|ram~2114                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; ram_module:ram_module_|ram~2112                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; ram_module:ram_module_|ram~2115                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; ram_module:ram_module_|ram~2113                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; ram_module:ram_module_|ram~2098                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; ram_module:ram_module_|ram~2096                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; ram_module:ram_module_|ram~2086                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; ram_module:ram_module_|ram~2106                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; ram_module:ram_module_|ram~2104                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; ram_module:ram_module_|ram~2105                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; ram_module:ram_module_|ram~2107                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; ram_module:ram_module_|ram~2090                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; ram_module:ram_module_|ram~2087                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|aludec:aludec|alucontrol[0]~5                          ; 62      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:B_register|Data_reg[27]                     ; 36      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data|Y[27]~15                      ; 34      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:B_register|Data_reg[25]                     ; 36      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data|Y[25]~24                      ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:B_register|Data_reg[31]                     ; 39      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data|Y[31]~12                      ; 31      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:B_register|Data_reg[30]~DUPLICATE           ; 35      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data|Y[30]~18                      ; 31      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_4_1:mux_4_1|Y[0]~112                               ; 42      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:B_register|Data_reg[12]~DUPLICATE           ; 33      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data|Y[12]~28                      ; 31      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data|Y[5]~5                        ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data|Y[3]~3                        ; 31      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:B_register|Data_reg[3]                      ; 40      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:B_register|Data_reg[24]                     ; 36      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data|Y[24]~25                      ; 31      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_4_1:mux_4_1|Y[3]~105                               ; 36      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|register_n:B_register|Data_reg[5]                      ; 39      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data|Y[21]~19                      ; 31      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data|Y[1]~1                        ; 31      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data|Y[2]~2                        ; 31      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data|Y[6]~6                        ; 31      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data|Y[7]~7                        ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data|Y[13]~29                      ; 31      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data|Y[14]~11                      ; 31      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data|Y[8]~13                       ; 33      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data|Y[10]~30                      ; 31      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data|Y[11]~14                      ; 34      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Heard_Bit:design_monitor|heard_bit_out                                        ; 2309    ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rst~inputCLKENA0                                                              ; 1310    ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; peripherals_control_unit:peripherals_control_unit_|Adr_out[2]~5               ; 300     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; peripherals_control_unit:peripherals_control_unit_|Adr_out[1]~3               ; 299     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|register_n:instruction_register|Data_reg[20]           ; 163     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|register_n:instruction_register|Data_reg[18]           ; 163     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|register_n:instruction_register|Data_reg[23]           ; 162     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|register_n:instruction_register|Data_reg[21]           ; 162     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|register_n:instruction_register|Data_reg[17]           ; 162     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|register_n:instruction_register|Data_reg[22]           ; 162     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|register_n:instruction_register|Data_reg[15]           ; 162     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|register_n:instruction_register|Data_reg[16]~DUPLICATE ; 160     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; peripherals_control_unit:peripherals_control_unit_|Adr_out[0]~1               ; 158     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|FSM_riscv:FSM_riscv|WideOr12~0                         ; 139     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; peripherals_control_unit:peripherals_control_unit_|Adr_out[4]~6               ; 91      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; peripherals_control_unit:peripherals_control_unit_|Adr_out[3]~8               ; 89      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|comb~1                                                 ; 70      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|aludec:aludec|alucontrol[0]~5                          ; 62      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|FSM_riscv:FSM_riscv|WideOr14                           ; 60      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|mux_4_1:mux_4_1|Y~70                                   ; 60      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|mux_4_1:mux_4_1_PC_A|Y[3]~0                            ; 58      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|FSM_riscv:FSM_riscv|STATE.MEM_WRITE                    ; 46      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|sign_extend_riscv:sign_extend_riscv|Selector0~3        ; 45      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|register_n:instruction_register|Data_reg[2]            ; 44      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|mux_4_1:mux_4_1|Y[1]~116                               ; 44      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|aludec:aludec|Selector0~0                              ; 43      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|mux_4_1:mux_4_1|Y[0]~112                               ; 42      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|FSM_riscv:FSM_riscv|WideOr12~1                         ; 42      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|register_n:instruction_register|Data_reg[5]            ; 42      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|register_n:B_register|Data_reg[3]                      ; 40      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|register_n:B_register|Data_reg[2]                      ; 40      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|register_n:B_register|Data_reg[4]                      ; 40      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|register_n:B_register|Data_reg[31]                     ; 39      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|register_n:B_register|Data_reg[5]                      ; 39      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|register_n:B_register|Data_reg[1]                      ; 39      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|register_n:B_register|Data_reg[6]                      ; 39      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|register_n:B_register|Data_reg[0]                      ; 39      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|register_n:B_register|Data_reg[16]                     ; 39      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|register_n:B_register|Data_reg[8]                      ; 38      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|register_n:B_register|Data_reg[14]                     ; 38      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|register_n:B_register|Data_reg[7]                      ; 38      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|register_n:B_register|Data_reg[11]                     ; 38      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|register_file:register_file_1|Decoder0~1               ; 37      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|register_n:B_register|Data_reg[15]                     ; 37      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|FSM_riscv:FSM_riscv|WideOr17                           ; 37      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|FSM_riscv:FSM_riscv|IRWrite~0                          ; 37      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|register_n:B_register|Data_reg[19]                     ; 37      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|register_n:B_register|Data_reg[18]                     ; 37      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|register_n:instruction_register|Data_reg[4]            ; 37      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; riscv_core:riscv_core_|register_n:B_register|Data_reg[20]                     ; 37      ;
++------------------------------------------------------------------+-------------------------------------------------------------------------------+---------+
+
+
++---------------------------+
+; Design Assistant Messages ;
++---------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Design Assistant
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Sun Apr  3 19:46:14 2022
+Info: Command: quartus_drc riscv_factorial -c riscv_factorial
+Info (332104): Reading SDC File: 'riscv_factorial.sdc'
+Warning (332060): Node: Heard_Bit:design_monitor|heard_bit_out was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register riscv_core:riscv_core_|register_pc_n:PC_register|Data_reg[3] is being clocked by Heard_Bit:design_monitor|heard_bit_out
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Warning (308040): (Medium) Rule C104: Clock signal source should drive only clock input ports. Found 1 nodes related to this rule.
+    Warning (308010): Node  "Heard_Bit:design_monitor|heard_bit_out" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/Heard_Bit.v Line: 15
+Warning (308023): (Medium) Rule R102: External reset signals should be synchronized using two cascaded registers. Found 1 node(s) related to this rule.
+    Warning (308010): Node  "rst" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_factorial.v Line: 4
+Info (308046): (Information) Rule T101: Nodes with more than the specified number of fan-outs. (Value defined:30). Found 169 node(s) with highest fan-out.
+    Info (308011): Node  "Heard_Bit:design_monitor|heard_bit_out" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/Heard_Bit.v Line: 15
+    Info (308011): Node  "rst~inputCLKENA0" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_factorial.v Line: 4
+    Info (308011): Node  "riscv_core:riscv_core_|comb~1"
+    Info (308011): Node  "riscv_core:riscv_core_|FSM_riscv:FSM_riscv|IRWrite~0" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/FSM_riscv.v Line: 18
+    Info (308011): Node  "riscv_core:riscv_core_|register_n:instruction_register|Data_reg[2]" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_n.v Line: 24
+    Info (308011): Node  "ram_module:ram_module_|ram~2097" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/ram_module.v Line: 11
+    Info (308011): Node  "peripherals_control_unit:peripherals_control_unit_|Adr_out[0]~1" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/peripherals_control_unit.v Line: 16
+    Info (308011): Node  "riscv_core:riscv_core_|mux_4_1:mux_4_1_PC_A|Y[3]~0" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/mux_4_1.v Line: 16
+    Info (308011): Node  "riscv_core:riscv_core_|register_n:B_register|Data_reg[1]" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_n.v Line: 24
+    Info (308011): Node  "riscv_core:riscv_core_|register_file:register_file_1|Decoder0~10" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_file.v Line: 45
+    Info (308011): Node  "riscv_core:riscv_core_|register_n:B_register|Data_reg[11]" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_n.v Line: 24
+    Info (308011): Node  "riscv_core:riscv_core_|register_n:instruction_register|Data_reg[24]" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_n.v Line: 24
+    Info (308011): Node  "peripherals_control_unit:peripherals_control_unit_|Adr_out[1]~3" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/peripherals_control_unit.v Line: 16
+    Info (308011): Node  "riscv_core:riscv_core_|FSM_riscv:FSM_riscv|STATE.MEM_WRITE" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/FSM_riscv.v Line: 85
+    Info (308011): Node  "riscv_core:riscv_core_|register_n:instruction_register|Data_reg[4]" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_n.v Line: 24
+    Info (308011): Node  "ram_module:ram_module_|ram~2083" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/ram_module.v Line: 11
+    Info (308011): Node  "peripherals_control_unit:peripherals_control_unit_|Adr_out[3]~8" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/peripherals_control_unit.v Line: 16
+    Info (308011): Node  "riscv_core:riscv_core_|register_n:instruction_register|Data_reg[5]" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_n.v Line: 24
+    Info (308011): Node  "peripherals_control_unit:peripherals_control_unit_|Adr_out[4]~6" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/peripherals_control_unit.v Line: 16
+    Info (308011): Node  "peripherals_control_unit:peripherals_control_unit_|Data_out[7]~1" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/peripherals_control_unit.v Line: 13
+    Info (308011): Node  "riscv_core:riscv_core_|register_n:instruction_register|Data_reg[3]" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_n.v Line: 24
+    Info (308011): Node  "peripherals_control_unit:peripherals_control_unit_|Adr_out[2]~5" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/peripherals_control_unit.v Line: 16
+    Info (308011): Node  "riscv_core:riscv_core_|register_n:B_register|Data_reg[13]" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_n.v Line: 24
+    Info (308011): Node  "riscv_core:riscv_core_|register_file:register_file_1|Decoder0~25" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_file.v Line: 45
+    Info (308011): Node  "riscv_core:riscv_core_|register_n:B_register|Data_reg[14]" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_n.v Line: 24
+    Info (308011): Node  "riscv_core:riscv_core_|register_file:register_file_1|Decoder0~30" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_file.v Line: 45
+    Info (308011): Node  "riscv_core:riscv_core_|register_n:instruction_register|Data_reg[9]" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_n.v Line: 24
+    Info (308011): Node  "riscv_core:riscv_core_|register_n:B_register|Data_reg[9]" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_n.v Line: 24
+    Info (308011): Node  "riscv_core:riscv_core_|register_file:register_file_1|Decoder0~6" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_file.v Line: 45
+    Info (308011): Node  "riscv_core:riscv_core_|register_n:B_register|Data_reg[8]" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_n.v Line: 24
+    Info (308002): Truncated list of Design Assistant messages to 30 messages. Go to sections under Design Assistant section of Compilation Report for complete lists of Design Assistant messages generated.
+Info (308044): (Information) Rule T102: Top nodes with the highest number of fan-outs. (Value defined:50). Found 50 node(s) with highest fan-out.
+    Info (308011): Node  "Heard_Bit:design_monitor|heard_bit_out" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/Heard_Bit.v Line: 15
+    Info (308011): Node  "rst~inputCLKENA0" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_factorial.v Line: 4
+    Info (308011): Node  "peripherals_control_unit:peripherals_control_unit_|Adr_out[2]~5" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/peripherals_control_unit.v Line: 16
+    Info (308011): Node  "peripherals_control_unit:peripherals_control_unit_|Adr_out[1]~3" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/peripherals_control_unit.v Line: 16
+    Info (308011): Node  "riscv_core:riscv_core_|register_n:instruction_register|Data_reg[20]" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_n.v Line: 24
+    Info (308011): Node  "riscv_core:riscv_core_|register_n:instruction_register|Data_reg[18]" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_n.v Line: 24
+    Info (308011): Node  "riscv_core:riscv_core_|register_n:instruction_register|Data_reg[23]" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_n.v Line: 24
+    Info (308011): Node  "riscv_core:riscv_core_|register_n:instruction_register|Data_reg[21]" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_n.v Line: 24
+    Info (308011): Node  "riscv_core:riscv_core_|register_n:instruction_register|Data_reg[17]" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_n.v Line: 24
+    Info (308011): Node  "riscv_core:riscv_core_|register_n:instruction_register|Data_reg[22]" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_n.v Line: 24
+    Info (308011): Node  "riscv_core:riscv_core_|register_n:instruction_register|Data_reg[15]" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_n.v Line: 24
+    Info (308011): Node  "riscv_core:riscv_core_|register_n:instruction_register|Data_reg[16]~DUPLICATE" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_n.v Line: 24
+    Info (308011): Node  "peripherals_control_unit:peripherals_control_unit_|Adr_out[0]~1" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/peripherals_control_unit.v Line: 16
+    Info (308011): Node  "riscv_core:riscv_core_|FSM_riscv:FSM_riscv|WideOr12~0" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/FSM_riscv.v Line: 169
+    Info (308011): Node  "peripherals_control_unit:peripherals_control_unit_|Adr_out[4]~6" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/peripherals_control_unit.v Line: 16
+    Info (308011): Node  "peripherals_control_unit:peripherals_control_unit_|Adr_out[3]~8" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/peripherals_control_unit.v Line: 16
+    Info (308011): Node  "riscv_core:riscv_core_|comb~1"
+    Info (308011): Node  "riscv_core:riscv_core_|aludec:aludec|alucontrol[0]~5" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/aludec.v Line: 7
+    Info (308011): Node  "riscv_core:riscv_core_|FSM_riscv:FSM_riscv|WideOr14" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/FSM_riscv.v Line: 169
+    Info (308011): Node  "riscv_core:riscv_core_|mux_4_1:mux_4_1|Y~70" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/mux_4_1.v Line: 16
+    Info (308011): Node  "riscv_core:riscv_core_|mux_4_1:mux_4_1_PC_A|Y[3]~0" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/mux_4_1.v Line: 16
+    Info (308011): Node  "riscv_core:riscv_core_|FSM_riscv:FSM_riscv|STATE.MEM_WRITE" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/FSM_riscv.v Line: 85
+    Info (308011): Node  "riscv_core:riscv_core_|sign_extend_riscv:sign_extend_riscv|Selector0~3" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/sign_extend_riscv.v Line: 19
+    Info (308011): Node  "riscv_core:riscv_core_|register_n:instruction_register|Data_reg[2]" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_n.v Line: 24
+    Info (308011): Node  "riscv_core:riscv_core_|mux_4_1:mux_4_1|Y[1]~116" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/mux_4_1.v Line: 16
+    Info (308011): Node  "riscv_core:riscv_core_|aludec:aludec|Selector0~0" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/aludec.v Line: 16
+    Info (308011): Node  "riscv_core:riscv_core_|mux_4_1:mux_4_1|Y[0]~112" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/mux_4_1.v Line: 16
+    Info (308011): Node  "riscv_core:riscv_core_|FSM_riscv:FSM_riscv|WideOr12~1" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/FSM_riscv.v Line: 169
+    Info (308011): Node  "riscv_core:riscv_core_|register_n:instruction_register|Data_reg[5]" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_n.v Line: 24
+    Info (308011): Node  "riscv_core:riscv_core_|register_n:B_register|Data_reg[3]" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_n.v Line: 24
+    Info (308002): Truncated list of Design Assistant messages to 30 messages. Go to sections under Design Assistant section of Compilation Report for complete lists of Design Assistant messages generated.
+Info (308007): Design Assistant information: finished post-fitting analysis of current design -- generated 219 information messages and 2 warning messages
+Info: Quartus Prime Design Assistant was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 984 megabytes
+    Info: Processing ended: Sun Apr  3 19:46:16 2022
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
+
+

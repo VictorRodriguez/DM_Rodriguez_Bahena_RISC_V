@@ -23,11 +23,15 @@ module ALU # (parameter WIDTH = 4)(
 		case (REG_CONTROL) 
 		4'b0000:
 			begin // AND 
-			    RESULT <= A & B; 
+			   RESULT <= A & B;
+				carry_out <= 1'b0;
+				overflow <= 1'b0; 
             end
 		4'b0001: //OR
 			begin 
 			    RESULT <= A | B;
+				 carry_out <= 1'b0;
+				 overflow <= 1'b0;
             end
 		4'b0010: 
             begin // suma
@@ -44,26 +48,38 @@ module ALU # (parameter WIDTH = 4)(
 		4'b0100: // AUIPC
 			begin
 			    RESULT <= A + (B<<12) - 4;
+				 carry_out <= 1'b0;
+				 overflow <= 1'b0;
          end
 		4'b0101: //sub
 			begin 
-					RESULT <= A - B;
+				RESULT <= A - B;
+				carry_out <= 1'b0;
+				overflow <= 1'b0;
             end
       4'b0110: // BEQ
             begin
-			    RESULT <= (A-4) + B ;
+			   RESULT <= (A-4) + B ;
+				carry_out <= 1'b0;
+				overflow <= 1'b0;
             end 
 		4'b0111: // shift <<
 			begin 
-			    RESULT <= A << B;
+			   RESULT <= A << B;
+				carry_out <= 1'b0;
+				overflow <= 1'b0;
          end
 		4'b1000: // SLTI
 			begin 
 			    RESULT <= (A < B) ? 1:0;
+				 carry_out <= 1'b0;
+				 overflow <= 1'b0;
          end
 		default:
 			begin
-			     RESULT <= 0;
+			    RESULT <= 0;
+				 carry_out <= 1'b0;
+				 overflow <= 1'b0;
          end   
 		endcase			
 	end

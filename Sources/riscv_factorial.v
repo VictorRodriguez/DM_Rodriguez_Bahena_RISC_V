@@ -17,21 +17,21 @@ wire [31:0] Data_in;
 wire set_leds;
 wire [31:0] Data_ROM;
 wire [31:0] Data_RAM;
-wire [31:0] Data_GPIO;
+wire [31:0] Data_from_GPIO;
 wire [31:0] Adr_out;
-wire [31:0] Data_out_CPU;
+wire [31:0] Data_to_CPU;
 wire [2:0] selector;
-wire [7:0] gpio_port_out_w;
+wire clk_;
 
 riscv_core riscv_core_(
 	// inputs
-	.clk(heard_bit_out),
+	.clk(clk_),
 	.rst(rst),
 	// outputs
 	.Adr(Adr),
 	.MemWrite(MemWrite),
 	.Data_out(Data_out),
-	.Data_in(Data_out_CPU)
+	.Data_in(Data_to_CPU)
 );
 
 peripherals_control_unit peripherals_control_unit_(
@@ -42,18 +42,18 @@ peripherals_control_unit peripherals_control_unit_(
 	
 	.Data_in_0(Data_ROM),
 	.Data_in_1(Data_RAM),
-	.Data_in_2(Data_GPIO),
+	.Data_in_2(Data_from_GPIO),
 
 	// outputs
 	.selector(selector),
-	.Data_out(Data_out_CPU),
+	.Data_out(Data_to_CPU),
 	.Adr_out(Adr_out)
 );
 
 rom_module #(.DATA_WIDTH(32), .ADDR_WIDTH(32) ) rom_module_(
 	// inputs
 	.Addr(Adr_out),
-	.clk(heard_bit_out),
+	.clk(clk_),
 	.WE(), // N/A
 	.WD(), // N/A
 	// outputs
@@ -63,7 +63,7 @@ rom_module #(.DATA_WIDTH(32), .ADDR_WIDTH(32) ) rom_module_(
 ram_module #(.DATA_WIDTH(32), .ADDR_WIDTH(32) ) ram_module_(
 	// inputs
 	.Addr(Adr_out),
-	.clk(heard_bit_out),
+	.clk(clk_),
 	.WE(MemWrite),
 	.WD(Data_out),
 	// outputs
@@ -73,17 +73,17 @@ ram_module #(.DATA_WIDTH(32), .ADDR_WIDTH(32) ) ram_module_(
 gpio gpio_(
 	/// inputs
 	.Adr_in(Adr),
-	
+	.clk(clk_),
+	.rst(rst),
 	.Data_in(Data_out),
-	.gpio_port_in (gpio_port_in), // SWITCHES
-
+	.switches (gpio_port_in), // SWITCHES
 	// outputs
-	.set_leds(set_leds),
-	.Data_out(Data_GPIO),
-	.gpio_port_out (gpio_port_out_w) // LEDS
+	.Data_out(Data_from_GPIO),
+	.Leds (gpio_port_out) // LEDS
 );
 
-register_n # (.n(8)) leds_reg (.D(gpio_port_out_w),.clk(heard_bit_out),.rst(rst),.load(set_leds),.Q(gpio_port_out));
+Heard_Bit  # (.Half_Period_Counts(10_000) ) // main clk
+          clk_timer(.clk(clk), .rst(rst), .enable(1'b1), .heard_bit_out(clk_));
 
 Heard_Bit  # (.Half_Period_Counts(10_000_000) ) // half second for a clk of 50 MHz 
           design_monitor (.clk(clk), .rst(rst), .enable(1'b1), .heard_bit_out(heard_bit_out));
