@@ -25,7 +25,7 @@ wire clk_;
 
 riscv_core riscv_core_(
 	// inputs
-	.clk(clk_),
+	.clk(clk),
 	.rst(rst),
 	// outputs
 	.Adr(Adr),
@@ -53,17 +53,17 @@ peripherals_control_unit peripherals_control_unit_(
 rom_module #(.DATA_WIDTH(32), .ADDR_WIDTH(32) ) rom_module_(
 	// inputs
 	.Addr(Adr_out),
-	.clk(clk_),
+	.clk(clk),
 	.WE(), // N/A
 	.WD(), // N/A
 	// outputs
 	.RD(Data_ROM)
 );
 
-ram_module #(.DATA_WIDTH(32), .ADDR_WIDTH(32) ) ram_module_(
+ram_module #(.DATA_WIDTH(32), .ADDR_WIDTH(128) ) ram_module_(
 	// inputs
 	.Addr(Adr_out),
-	.clk(clk_),
+	.clk(clk),
 	.WE(MemWrite),
 	.WD(Data_out),
 	// outputs
@@ -73,7 +73,7 @@ ram_module #(.DATA_WIDTH(32), .ADDR_WIDTH(32) ) ram_module_(
 gpio gpio_(
 	/// inputs
 	.Adr_in(Adr),
-	.clk(clk_),
+	.clk(clk),
 	.rst(rst),
 	.Data_in(Data_out),
 	.switches (gpio_port_in), // SWITCHES

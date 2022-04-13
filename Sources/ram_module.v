@@ -10,10 +10,10 @@ module ram_module #(parameter DATA_WIDTH= 32, parameter ADDR_WIDTH= 16 )(
 
 reg [DATA_WIDTH-1:0] ram[ADDR_WIDTH-1:0];
 
-initial
-begin
-	$readmemb("/home/vmrod/devel/quartus/riscv_factorial/ram.txt" ,ram);
-end
+//initial
+//begin
+//	$readmemb("/home/vmrod/devel/quartus/riscv_factorial/ram.txt" ,ram);
+//end
 always@ (posedge clk)
   begin
   	if (WE) begin

@@ -38,7 +38,7 @@ localparam  GPIO_2 	=  16'B0000000000101000;
 			end
 	else if (Adr_in[31:0] >= STACK)
 			begin //STACK
-			Adr_out <= Adr_in[31:0] - 2147479516; // make it from 0-32
+			Adr_out <= Adr_in[7:0] >> 1 ; // make it from 0-32
 			Data_out <=Data_in_1;
 			selector <= 3'b100;
 			end

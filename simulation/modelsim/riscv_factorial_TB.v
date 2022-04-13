@@ -19,7 +19,7 @@ initial
     begin
 	 clk = 1'b0;
 	 rst = 1'b0;
-	 gpio_port_in = 8'b00000011;
+	 gpio_port_in = 8'b00000110;
 	 #20
 	 rst = 1'b1;
     end

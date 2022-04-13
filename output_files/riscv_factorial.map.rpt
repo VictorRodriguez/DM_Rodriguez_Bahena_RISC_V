@@ -1,5 +1,5 @@
 Analysis & Synthesis report for riscv_factorial
-Sun Apr  3 19:57:05 2022
+Tue Apr 12 20:04:30 2022
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -78,13 +78,13 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Apr  3 19:57:05 2022       ;
+; Analysis & Synthesis Status     ; Successful - Tue Apr 12 20:04:30 2022       ;
 ; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                   ; riscv_factorial                             ;
 ; Top-level Entity Name           ; riscv_factorial                             ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 2308                                        ;
+; Total registers                 ; 5365                                        ;
 ; Total pins                      ; 19                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
@@ -199,9 +199,9 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processor 3            ;   0.0%      ;
-;     Processor 4            ;   0.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
 +----------------------------+-------------+
 
 
@@ -228,35 +228,34 @@ https://fpgasoftware.intel.com/eula.
 ; Sources/ALU.v                      ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/riscv_factorial/Sources/ALU.v                      ;         ;
 ; Sources/riscv_factorial.v          ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_factorial.v          ;         ;
 ; opcode.txt                         ; yes             ; Auto-Found File        ; /home/vmrod/devel/quartus/riscv_factorial/opcode.txt                         ;         ;
-; ram.txt                            ; yes             ; Auto-Found File        ; /home/vmrod/devel/quartus/riscv_factorial/ram.txt                            ;         ;
 +------------------------------------+-----------------+------------------------+------------------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                     ;
-+---------------------------------------------+-----------------------------------+
-; Resource                                    ; Usage                             ;
-+---------------------------------------------+-----------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 2064                              ;
-;                                             ;                                   ;
-; Combinational ALUT usage for logic          ; 2080                              ;
-;     -- 7 input functions                    ; 259                               ;
-;     -- 6 input functions                    ; 944                               ;
-;     -- 5 input functions                    ; 282                               ;
-;     -- 4 input functions                    ; 212                               ;
-;     -- <=3 input functions                  ; 383                               ;
-;                                             ;                                   ;
-; Dedicated logic registers                   ; 2308                              ;
-;                                             ;                                   ;
-; I/O pins                                    ; 19                                ;
-;                                             ;                                   ;
-; Total DSP Blocks                            ; 2                                 ;
-;                                             ;                                   ;
-; Maximum fan-out node                        ; Heard_Bit:clk_timer|heard_bit_out ;
-; Maximum fan-out                             ; 2269                              ;
-; Total fan-out                               ; 19022                             ;
-; Average fan-out                             ; 4.30                              ;
-+---------------------------------------------+-----------------------------------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 4465      ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 3099      ;
+;     -- 7 input functions                    ; 1031      ;
+;     -- 6 input functions                    ; 1105      ;
+;     -- 5 input functions                    ; 290       ;
+;     -- 4 input functions                    ; 193       ;
+;     -- <=3 input functions                  ; 480       ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 5365      ;
+;                                             ;           ;
+; I/O pins                                    ; 19        ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 2         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 5365      ;
+; Total fan-out                               ; 34825     ;
+; Average fan-out                             ; 4.10      ;
++---------------------------------------------+-----------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -264,22 +263,21 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------+--------------------------+--------------+
 ; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                         ; Entity Name              ; Library Name ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------+--------------------------+--------------+
-; |riscv_factorial                                        ; 2080 (0)            ; 2308 (0)                  ; 0                 ; 2          ; 19   ; 0            ; |riscv_factorial                                                            ; riscv_factorial          ; work         ;
-;    |Heard_Bit:clk_timer|                                ; 18 (18)             ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|Heard_Bit:clk_timer                                        ; Heard_Bit                ; work         ;
-;    |Heard_Bit:design_monitor|                           ; 30 (30)             ; 25 (25)                   ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|Heard_Bit:design_monitor                                   ; Heard_Bit                ; work         ;
+; |riscv_factorial                                        ; 3099 (0)            ; 5365 (0)                  ; 0                 ; 2          ; 19   ; 0            ; |riscv_factorial                                                            ; riscv_factorial          ; work         ;
+;    |Heard_Bit:design_monitor|                           ; 31 (31)             ; 25 (25)                   ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|Heard_Bit:design_monitor                                   ; Heard_Bit                ; work         ;
 ;    |gpio:gpio_|                                         ; 3 (3)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|gpio:gpio_                                                 ; gpio                     ; work         ;
-;    |peripherals_control_unit:peripherals_control_unit_| ; 82 (82)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|peripherals_control_unit:peripherals_control_unit_         ; peripherals_control_unit ; work         ;
-;    |ram_module:ram_module_|                             ; 324 (324)           ; 1024 (1024)               ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|ram_module:ram_module_                                     ; ram_module               ; work         ;
-;    |riscv_core:riscv_core_|                             ; 1611 (2)            ; 1236 (0)                  ; 0                 ; 2          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_                                     ; riscv_core               ; work         ;
-;       |ALU:ALU|                                         ; 557 (557)           ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|ALU:ALU                             ; ALU                      ; work         ;
-;       |FSM_riscv:FSM_riscv|                             ; 42 (42)             ; 20 (20)                   ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|FSM_riscv:FSM_riscv                 ; FSM_riscv                ; work         ;
+;    |peripherals_control_unit:peripherals_control_unit_| ; 81 (81)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|peripherals_control_unit:peripherals_control_unit_         ; peripherals_control_unit ; work         ;
+;    |ram_module:ram_module_|                             ; 1376 (1376)         ; 4096 (4096)               ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|ram_module:ram_module_                                     ; ram_module               ; work         ;
+;    |riscv_core:riscv_core_|                             ; 1599 (2)            ; 1236 (0)                  ; 0                 ; 2          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_                                     ; riscv_core               ; work         ;
+;       |ALU:ALU|                                         ; 546 (546)           ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|ALU:ALU                             ; ALU                      ; work         ;
+;       |FSM_riscv:FSM_riscv|                             ; 41 (41)             ; 20 (20)                   ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|FSM_riscv:FSM_riscv                 ; FSM_riscv                ; work         ;
 ;       |aludec:aludec|                                   ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|aludec:aludec                       ; aludec                   ; work         ;
-;       |imm_gen:imm_gen|                                 ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|imm_gen:imm_gen                     ; imm_gen                  ; work         ;
+;       |imm_gen:imm_gen|                                 ; 6 (6)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|imm_gen:imm_gen                     ; imm_gen                  ; work         ;
 ;       |mux_2_1:mux_2_1_ALU_data|                        ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_data            ; mux_2_1                  ; work         ;
 ;       |mux_2_1:mux_2_1_ALU_result|                      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|mux_2_1:mux_2_1_ALU_result          ; mux_2_1                  ; work         ;
-;       |mux_2_1:mux_2_1_PC_ALUOut|                       ; 15 (15)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|mux_2_1:mux_2_1_PC_ALUOut           ; mux_2_1                  ; work         ;
+;       |mux_2_1:mux_2_1_PC_ALUOut|                       ; 20 (20)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|mux_2_1:mux_2_1_PC_ALUOut           ; mux_2_1                  ; work         ;
 ;       |mux_4_1:mux_4_1_PC_A|                            ; 33 (33)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|mux_4_1:mux_4_1_PC_A                ; mux_4_1                  ; work         ;
-;       |mux_4_1:mux_4_1|                                 ; 123 (123)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|mux_4_1:mux_4_1                     ; mux_4_1                  ; work         ;
+;       |mux_4_1:mux_4_1|                                 ; 122 (122)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|mux_4_1:mux_4_1                     ; mux_4_1                  ; work         ;
 ;       |register_file:register_file_1|                   ; 767 (767)           ; 992 (992)                 ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|register_file:register_file_1       ; register_file            ; work         ;
 ;       |register_n:ALU_result_register|                  ; 0 (0)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|register_n:ALU_result_register      ; register_n               ; work         ;
 ;       |register_n:A_register|                           ; 0 (0)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|register_n:A_register               ; register_n               ; work         ;
@@ -289,7 +287,7 @@ https://fpgasoftware.intel.com/eula.
 ;       |register_pc_n:PC_register_b|                     ; 0 (0)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|register_pc_n:PC_register_b         ; register_pc_n            ; work         ;
 ;       |register_pc_n:PC_register|                       ; 0 (0)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|register_pc_n:PC_register           ; register_pc_n            ; work         ;
 ;       |sign_extend_riscv:sign_extend_riscv|             ; 19 (19)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|riscv_core:riscv_core_|sign_extend_riscv:sign_extend_riscv ; sign_extend_riscv        ; work         ;
-;    |rom_module:rom_module_|                             ; 12 (12)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|rom_module:rom_module_                                     ; rom_module               ; work         ;
+;    |rom_module:rom_module_|                             ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |riscv_factorial|rom_module:rom_module_                                     ; rom_module               ; work         ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------+--------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -355,19 +353,18 @@ Encoding Type:  One-Hot
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[0][12] ; Stuck at GND due to stuck port clock_enable ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[0][11] ; Stuck at GND due to stuck port clock_enable ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[0][8]  ; Stuck at GND due to stuck port clock_enable ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[0][10] ; Stuck at GND due to stuck port clock_enable ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[0][9]  ; Stuck at GND due to stuck port clock_enable ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[0][10] ; Stuck at GND due to stuck port clock_enable ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[0][17] ; Stuck at GND due to stuck port clock_enable ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[0][18] ; Stuck at GND due to stuck port clock_enable ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[0][13] ; Stuck at GND due to stuck port clock_enable ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[0][14] ; Stuck at GND due to stuck port clock_enable ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[0][15] ; Stuck at GND due to stuck port clock_enable ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[0][13] ; Stuck at GND due to stuck port clock_enable ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[0][25] ; Stuck at GND due to stuck port clock_enable ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[0][21] ; Stuck at GND due to stuck port clock_enable ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[0][20] ; Stuck at GND due to stuck port clock_enable ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[0][22] ; Stuck at GND due to stuck port clock_enable ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[0][19] ; Stuck at GND due to stuck port clock_enable ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[0][23] ; Stuck at GND due to stuck port clock_enable ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[0][25] ; Stuck at GND due to stuck port clock_enable ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[0][24] ; Stuck at GND due to stuck port clock_enable ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[0][26] ; Stuck at GND due to stuck port clock_enable ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[0][27] ; Stuck at GND due to stuck port clock_enable ;
@@ -375,6 +372,7 @@ Encoding Type:  One-Hot
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[0][29] ; Stuck at GND due to stuck port clock_enable ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[0][30] ; Stuck at GND due to stuck port clock_enable ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[0][31] ; Stuck at GND due to stuck port clock_enable ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[0][19] ; Stuck at GND due to stuck port clock_enable ;
 ; riscv_core:riscv_core_|FSM_riscv:FSM_riscv|STATE~19             ; Lost fanout                                 ;
 ; riscv_core:riscv_core_|FSM_riscv:FSM_riscv|STATE~20             ; Lost fanout                                 ;
 ; riscv_core:riscv_core_|FSM_riscv:FSM_riscv|STATE~21             ; Lost fanout                                 ;
@@ -390,12 +388,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 2308  ;
-; Number of registers using Synchronous Clear  ; 38    ;
+; Total registers                              ; 5365  ;
+; Number of registers using Synchronous Clear  ; 24    ;
 ; Number of registers using Synchronous Load   ; 31    ;
-; Number of registers using Asynchronous Clear ; 1284  ;
+; Number of registers using Asynchronous Clear ; 1269  ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 2120  ;
+; Number of registers using Clock Enable       ; 5192  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -405,7 +403,7 @@ Encoding Type:  One-Hot
 +-----------------------------------------------------------------+---------+
 ; Inverted Register                                               ; Fan out ;
 +-----------------------------------------------------------------+---------+
-; riscv_core:riscv_core_|register_pc_n:PC_register|Data_reg[22]   ; 4       ;
+; riscv_core:riscv_core_|register_pc_n:PC_register|Data_reg[22]   ; 3       ;
 ; riscv_core:riscv_core_|register_pc_n:PC_register_b|Data_reg[22] ; 1       ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[2][2]  ; 2       ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[2][3]  ; 2       ;
@@ -413,60 +411,59 @@ Encoding Type:  One-Hot
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[2][5]  ; 2       ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[2][6]  ; 2       ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[2][7]  ; 2       ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[2][13] ; 2       ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[2][15] ; 2       ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[2][18] ; 2       ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[2][17] ; 2       ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[2][15] ; 2       ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[2][14] ; 2       ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[2][16] ; 2       ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[2][19] ; 2       ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[2][8]  ; 2       ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[2][11] ; 2       ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[2][27] ; 2       ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[2][28] ; 2       ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[2][29] ; 2       ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[2][30] ; 2       ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[2][25] ; 2       ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[2][21] ; 2       ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[2][20] ; 2       ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[2][22] ; 2       ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[2][19] ; 2       ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[2][23] ; 2       ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[2][25] ; 2       ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[2][24] ; 2       ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[2][26] ; 2       ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[2][16] ; 2       ;
-; riscv_core:riscv_core_|register_file:register_file_1|mem[2][13] ; 2       ;
+; riscv_core:riscv_core_|register_file:register_file_1|mem[2][27] ; 2       ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[2][10] ; 2       ;
 ; riscv_core:riscv_core_|register_file:register_file_1|mem[2][9]  ; 2       ;
 ; Total number of inverted registers = 30                         ;         ;
 +-----------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------+
-; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; Yes        ; |riscv_factorial|riscv_core:riscv_core_|register_n:B_register|Data_reg[4]       ;
-; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; Yes        ; |riscv_factorial|riscv_core:riscv_core_|register_n:A_register|Data_reg[15]      ;
-; 3:1                ; 20 bits   ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|imm_gen:imm_gen|Selector1               ;
-; 3:1                ; 17 bits   ; 34 LEs        ; 34 LEs               ; 0 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|FSM_riscv:FSM_riscv|STATE               ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |riscv_factorial|peripherals_control_unit:peripherals_control_unit_|Adr_out[0]  ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|ALU:ALU|ShiftLeft0                      ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|ALU:ALU|ShiftLeft0                      ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|ALU:ALU|ShiftLeft0                      ;
-; 4:1                ; 26 bits   ; 52 LEs        ; 52 LEs               ; 0 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|ALU:ALU|ShiftLeft0                      ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|imm_gen:imm_gen|Selector8               ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|FSM_riscv:FSM_riscv|STATE               ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|mux_4_1:mux_4_1_PC_A|Y[3]               ;
-; 4:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |riscv_factorial|peripherals_control_unit:peripherals_control_unit_|Data_out[9] ;
-; 4:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |riscv_factorial|peripherals_control_unit:peripherals_control_unit_|Data_out[7] ;
-; 18:1               ; 15 bits   ; 180 LEs       ; 105 LEs              ; 75 LEs                 ; No         ; |riscv_factorial|riscv_core:riscv_core_|ALU:ALU|Mux31                           ;
-; 23:1               ; 12 bits   ; 180 LEs       ; 120 LEs              ; 60 LEs                 ; No         ; |riscv_factorial|riscv_core:riscv_core_|ALU:ALU|Mux13                           ;
-; 13:1               ; 2 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|mux_4_1:mux_4_1|Y[10]                   ;
-; 26:1               ; 2 bits    ; 34 LEs        ; 24 LEs               ; 10 LEs                 ; No         ; |riscv_factorial|riscv_core:riscv_core_|ALU:ALU|Mux2                            ;
-; 18:1               ; 3 bits    ; 36 LEs        ; 27 LEs               ; 9 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|mux_4_1:mux_4_1|Y[7]                    ;
-; 19:1               ; 4 bits    ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|mux_4_1:mux_4_1|Y[1]                    ;
-; 23:1               ; 2 bits    ; 30 LEs        ; 28 LEs               ; 2 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|mux_4_1:mux_4_1|Y[17]                   ;
-; 26:1               ; 3 bits    ; 51 LEs        ; 42 LEs               ; 9 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|mux_4_1:mux_4_1|Y[13]                   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------+
+; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; Yes        ; |riscv_factorial|riscv_core:riscv_core_|register_n:B_register|Data_reg[11]       ;
+; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; Yes        ; |riscv_factorial|riscv_core:riscv_core_|register_n:A_register|Data_reg[13]       ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|imm_gen:imm_gen|Selector8                ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 34 LEs               ; 0 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|FSM_riscv:FSM_riscv|STATE                ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|ALU:ALU|ShiftLeft0                       ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|ALU:ALU|ShiftLeft0                       ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|ALU:ALU|ShiftLeft0                       ;
+; 4:1                ; 26 bits   ; 52 LEs        ; 52 LEs               ; 0 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|ALU:ALU|ShiftLeft0                       ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|imm_gen:imm_gen|Selector8                ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|FSM_riscv:FSM_riscv|STATE                ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|mux_4_1:mux_4_1_PC_A|Y[31]               ;
+; 4:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |riscv_factorial|peripherals_control_unit:peripherals_control_unit_|Data_out[24] ;
+; 4:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |riscv_factorial|peripherals_control_unit:peripherals_control_unit_|Adr_out[0]   ;
+; 18:1               ; 15 bits   ; 180 LEs       ; 105 LEs              ; 75 LEs                 ; No         ; |riscv_factorial|riscv_core:riscv_core_|ALU:ALU|Mux18                            ;
+; 23:1               ; 12 bits   ; 180 LEs       ; 120 LEs              ; 60 LEs                 ; No         ; |riscv_factorial|riscv_core:riscv_core_|ALU:ALU|Mux9                             ;
+; 13:1               ; 2 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|mux_4_1:mux_4_1|Y[9]                     ;
+; 26:1               ; 2 bits    ; 34 LEs        ; 24 LEs               ; 10 LEs                 ; No         ; |riscv_factorial|riscv_core:riscv_core_|ALU:ALU|Mux2                             ;
+; 18:1               ; 3 bits    ; 36 LEs        ; 27 LEs               ; 9 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|mux_4_1:mux_4_1|Y[5]                     ;
+; 19:1               ; 4 bits    ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|mux_4_1:mux_4_1|Y[1]                     ;
+; 23:1               ; 2 bits    ; 30 LEs        ; 28 LEs               ; 2 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|mux_4_1:mux_4_1|Y[17]                    ;
+; 26:1               ; 3 bits    ; 51 LEs        ; 42 LEs               ; 9 LEs                  ; No         ; |riscv_factorial|riscv_core:riscv_core_|mux_4_1:mux_4_1|Y[14]                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------+
@@ -616,7 +613,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Parameter Name ; Value ; Type                                       ;
 +----------------+-------+--------------------------------------------+
 ; DATA_WIDTH     ; 32    ; Signed Integer                             ;
-; ADDR_WIDTH     ; 32    ; Signed Integer                             ;
+; ADDR_WIDTH     ; 128   ; Signed Integer                             ;
 +----------------+-------+--------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -650,13 +647,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------+-------+----------+--------------------------+
 
 
-+-------------------------------------------------+
-; Port Connectivity Checks: "Heard_Bit:clk_timer" ;
-+--------+-------+----------+---------------------+
-; Port   ; Type  ; Severity ; Details             ;
-+--------+-------+----------+---------------------+
-; enable ; Input ; Info     ; Stuck at VCC        ;
-+--------+-------+----------+---------------------+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Heard_Bit:clk_timer"                                                                         ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; enable        ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; heard_bit_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------+
@@ -761,33 +759,33 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 2308                        ;
-;     CLR               ; 150                         ;
-;     CLR SCLR          ; 38                          ;
-;     ENA               ; 1024                        ;
+; arriav_ff             ; 5365                        ;
+;     CLR               ; 149                         ;
+;     CLR SCLR          ; 24                          ;
+;     ENA               ; 4096                        ;
 ;     ENA CLR           ; 1065                        ;
 ;     ENA CLR SLD       ; 31                          ;
-; arriav_lcell_comb     ; 2080                        ;
-;     arith             ; 253                         ;
+; arriav_lcell_comb     ; 3099                        ;
+;     arith             ; 239                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 100                         ;
+;         1 data inputs ; 86                          ;
 ;         2 data inputs ; 43                          ;
 ;         4 data inputs ; 43                          ;
 ;         5 data inputs ; 66                          ;
-;     extend            ; 259                         ;
-;         7 data inputs ; 259                         ;
-;     normal            ; 1568                        ;
+;     extend            ; 1031                        ;
+;         7 data inputs ; 1031                        ;
+;     normal            ; 1829                        ;
 ;         1 data inputs ; 29                          ;
-;         2 data inputs ; 49                          ;
-;         3 data inputs ; 161                         ;
-;         4 data inputs ; 169                         ;
-;         5 data inputs ; 216                         ;
-;         6 data inputs ; 944                         ;
+;         2 data inputs ; 43                          ;
+;         3 data inputs ; 278                         ;
+;         4 data inputs ; 150                         ;
+;         5 data inputs ; 224                         ;
+;         6 data inputs ; 1105                        ;
 ; arriav_mac            ; 2                           ;
 ; boundary_port         ; 19                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 13.00                       ;
-; Average LUT depth     ; 5.66                        ;
+; Max LUT depth         ; 14.00                       ;
+; Average LUT depth     ; 5.76                        ;
 +-----------------------+-----------------------------+
 
 
@@ -796,7 +794,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:05     ;
+; Top            ; 00:00:07     ;
 +----------------+--------------+
 
 
@@ -806,7 +804,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sun Apr  3 19:56:53 2022
+    Info: Processing started: Tue Apr 12 20:04:16 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off riscv_factorial -c riscv_factorial
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file Sources/sign_extend_riscv.v
@@ -868,7 +866,6 @@ Info (12128): Elaborating entity "peripherals_control_unit" for hierarchy "perip
 Info (12128): Elaborating entity "rom_module" for hierarchy "rom_module:rom_module_" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_factorial.v Line: 61
 Warning (10850): Verilog HDL warning at rom_module.v(15): number of words (21) in memory file does not match the number of elements in the address range [0:31] File: /home/vmrod/devel/quartus/riscv_factorial/Sources/rom_module.v Line: 15
 Info (12128): Elaborating entity "ram_module" for hierarchy "ram_module:ram_module_" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_factorial.v Line: 71
-Warning (10850): Verilog HDL warning at ram_module.v(15): number of words (255) in memory file does not match the number of elements in the address range [0:31] File: /home/vmrod/devel/quartus/riscv_factorial/Sources/ram_module.v Line: 15
 Info (12128): Elaborating entity "gpio" for hierarchy "gpio:gpio_" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_factorial.v Line: 83
 Info (12128): Elaborating entity "Heard_Bit" for hierarchy "Heard_Bit:clk_timer" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_factorial.v Line: 86
 Info (12128): Elaborating entity "Heard_Bit" for hierarchy "Heard_Bit:design_monitor" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_factorial.v Line: 89
@@ -882,16 +879,16 @@ Info (17049): 5 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file /home/vmrod/devel/quartus/riscv_factorial/output_files/riscv_factorial.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 4257 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 8347 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 10 input pins
     Info (21059): Implemented 9 output pins
-    Info (21061): Implemented 4236 logic cells
+    Info (21061): Implemented 8326 logic cells
     Info (21062): Implemented 2 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 760 megabytes
-    Info: Processing ended: Sun Apr  3 19:57:05 2022
-    Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:21
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 784 megabytes
+    Info: Processing ended: Tue Apr 12 20:04:30 2022
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:24
 
 
 +------------------------------------------+
