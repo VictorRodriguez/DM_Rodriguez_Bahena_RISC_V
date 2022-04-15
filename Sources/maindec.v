@@ -2,13 +2,13 @@ module maindec(
 	input [6:0] opcode,
 	input [2:0] func3,
 	output ALUSrcA,
-	output MemtoReg,
+	output [1:0]MemtoReg,
 	output MemWrite,
 	output Branch,
 	output ALUSrc,
 	output RegDst,
 	output RegWrite,
-	output Jump,
+	output [1:0] Jump,
 	output [1:0] ALUOp
 );
 	
@@ -31,43 +31,45 @@ localparam SLTI_FUNC3 = 3'b010;
 localparam BEQ_FUNC3  = 3'b000;
 localparam BNE_FUNC3  = 3'b001;
 
-reg [9:0] controls;
+reg [11:0] controls;
 
-assign ALUSrcA 	= controls[9];
-assign RegWrite 	= controls[8];
-assign RegDst 		= controls[7];
-assign ALUSrc 		= controls[6];
-assign Branch 		= controls[5];
-assign MemWrite 	= controls[4];
-assign MemtoReg 	= controls[3];
-assign Jump 		= controls[2];
-assign ALUOp[1:0] = controls [1:0];
+assign ALUSrcA 			= controls[11];
+assign RegWrite 			= controls[10];
+assign RegDst 				= controls[9];
+assign ALUSrc 				= controls[8];
+assign Branch 				= controls[7];
+assign MemWrite 			= controls[6];
+assign MemtoReg[1:0] 	= controls[5:4];
+assign Jump [1:0] 		= controls[3:2];
+assign ALUOp[1:0] 		= controls [1:0];
 
 always @*
 	begin
-		if (opcode == I_LOAD || opcode == S_TYPE)
-			controls <= 10'b1101000000; // LW/SW
+		if (opcode == I_LOAD )
+			controls <= 12'b110100_00_00_00; // LW
+		else if (opcode == S_TYPE )
+			controls <= 12'b110101_00_00_00; // SW
 		else if (opcode == R_TYPE)  
-			controls <= 10'b1110001010; // Rtype
+			controls <= 12'b111000_01_00_10; // Rtype
       else if (opcode == I_TYPE && func3 == ADDI_FUNC3)
-			controls <= 10'b1101001000; // ADDI_EXECUTE
+			controls <= 12'b110100_01_00_00; // ADDI_EXECUTE
       else if (opcode == I_TYPE && func3 == ANDI_FUNC3)
-			controls <= 10'b1110001001; // ANDI_EXECUTE
+			controls <= 12'b111100_01_00_01; // ANDI_EXECUTE
       else if (opcode == I_TYPE && func3 == SLLI_FUNC3)
-			controls <= 10'b1110000010; // SLLI_EXECUTE
+			controls <= 12'b111100_01_00_10; // SLLI_EXECUTE
       else if (opcode == I_TYPE && func3 == SLTI_FUNC3)
-			controls <= 10'b1110000010; // SLTI_EXECUTE
+			controls <= 12'b111100_01_00_10; // SLTI_EXECUTE
       else if (opcode == AUIPC)
-			controls <= 10'b0101001010; // AUICP_EXECUTE
+			controls <= 12'b010100_01_00_10; // AUICP_EXECUTE
 		else if (opcode == B_TYPE && func3 == BEQ_FUNC3)
-			controls <= 10'b0000100001; // BEQ_EXECUTE
+			controls <= 12'b100010_01_00_10; // BEQ_EXECUTE
 		else if (opcode == B_TYPE && func3 == BNE_FUNC3)
-			controls <= 10'b0000100001; // BNEQ_EXECUTE
+			controls <= 12'b100010_01_00_10; // BNEQ_EXECUTE
 		else if (opcode == JAL)
-			controls <= 10'b0000000100; // JAL_EXECUTE
+			controls <= 12'b010000_10_01_00; // JAL_EXECUTE
 		else if (opcode == JALR)
-			controls <= 10'b0000000100; // JALR_EXECUTE
+			controls <= 12'b110000_10_10_00; // JALR_EXECUTE
 		else
-			controls <= 10'b0000000000; // HALT
+			controls <= 12'b000000_00_00_00; // HALT
 	end
 endmodule

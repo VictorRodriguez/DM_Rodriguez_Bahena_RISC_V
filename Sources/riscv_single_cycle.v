@@ -16,6 +16,7 @@ wire MemWrite;
 wire [31:0] Adr_out_ROM;
 wire [31:0] Adr_out_RAM;
 wire [31:0] Data_in;
+wire [31:0] Data_out;
 wire set_leds;
 wire [31:0] Data_ROM;
 wire [31:0] Data_RAM;

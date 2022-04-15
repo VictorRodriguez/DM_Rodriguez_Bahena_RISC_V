@@ -25,7 +25,7 @@ wire RegWrite;
 wire ALUSrc;
 wire ALUSrcA;
 wire Branch;
-wire Jump;                                                                  
+wire [1:0]Jump;                                                                  
 wire [1:0]ALUOp;                                                                
 wire PCWrite;
 wire PCWriteCond;
@@ -33,6 +33,7 @@ wire PCWriteCond_NE;
 wire PCSource;                                                                     
 wire [31:0] imm_generated;
 wire [31:0] imm_generated_signed;
+wire [1:0] MemtoReg;
 
 ///////////////////////////////////////////////////////////////////////////////////////
 // Control Unit
@@ -64,8 +65,11 @@ maindec maindec_(
 ///////////////////////////////////////////////////////////////////////////////////////
 
 wire [31:0]PC;
+wire [31:0]PC_branch;
 wire [31:0]result_pc;
 wire [31:0]result_pc_branch;
+wire [31:0]result_pc_jal;
+wire [31:0]result_pc_jalr;
 
 wire [31:0]A_register_q;                                                        
 wire [31:0]RD1;                                                                 
@@ -124,20 +128,43 @@ ALU # (.WIDTH(31))adder_1(
 	.overflow()                                                                
 );   
 
-// Add for IMM
+// Add PC + IMM branch
  ALU # (.WIDTH(31))adder_2(                                                          
-	.A(result_pc),                                                                   
+	.A(PC_q),                                                                   
 	.B(imm_generated_signed),                                                                   
 	.REG_CONTROL(4'b0010),                                                   
 	.RESULT(result_pc_branch),                                                         
 	.zero(),                                                                   
 	.carry_out(),                                                              
 	.overflow()                                                                
-);   
+);
 
-mux_2_1 # (.N (32)) mux_branch (.A(result_pc), .B(imm_generated_signed), .sel(Branch && zero), .Y(PC));
-                                                      
-mux_2_1 # (.N (32)) mux_mem_to_reg(.A(Data_in_RAM), .B(ALUResult), .sel(MemtoReg), .Y(WD3));
+// Add for JUMP
+ ALU # (.WIDTH(31))adder_jump(                                                          
+	.A(PC_q),                                                                   
+	.B(imm_generated_signed),                                                                   
+	.REG_CONTROL(4'b0010),                                                   
+	.RESULT(result_pc_jal),                                                         
+	.zero(),                                                                   
+	.carry_out(),                                                              
+	.overflow()                                                                
+);
+
+// Add for JALR
+ ALU # (.WIDTH(31))adder_jalr(                                                          
+	.A(SrcA),                                                                   
+	.B(imm_generated_signed),                                                                   
+	.REG_CONTROL(4'b0010),                                                   
+	.RESULT(result_pc_jalr),                                                         
+	.zero(),                                                                   
+	.carry_out(),                                                              
+	.overflow()                                                                
+);    
+
+mux_2_1 # (.N (32)) mux_branch (.A(result_pc), .B(result_pc_branch), .sel(Branch && zero), .Y(PC_branch));
+mux_4_1 # (.N (32)) mux_jump (.A(PC_branch), .B(result_pc_jal),.C(result_pc_jalr), .D(),  .SEL(Jump), .Y(PC));
+
+mux_4_1 # (.N (32)) mux_mem_to_reg(.A(Data_in_RAM), .B(ALUResult), .C(result_pc), .D(), .SEL(MemtoReg), .Y(WD3));
 
 assign Data_out = RD2;
 assign RomAdr = PC_q;
