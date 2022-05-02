@@ -84,3 +84,10 @@
 !*.elf
 !*.bmm
 !*.xmp
+
+!*.qsf
+!*.sdc
+!*.qpf
+!*.qws
+
+
