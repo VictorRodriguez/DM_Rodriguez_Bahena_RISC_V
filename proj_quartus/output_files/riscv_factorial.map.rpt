@@ -1,5 +1,5 @@
 Analysis & Synthesis report for riscv_factorial
-Tue Apr 12 20:04:30 2022
+Sun May  1 14:17:31 2022
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -78,7 +78,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue Apr 12 20:04:30 2022       ;
+; Analysis & Synthesis Status     ; Successful - Sun May  1 14:17:31 2022       ;
 ; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                   ; riscv_factorial                             ;
 ; Top-level Entity Name           ; riscv_factorial                             ;
@@ -107,7 +107,6 @@ https://fpgasoftware.intel.com/eula.
 ; Top-level entity name                                                           ; riscv_factorial    ; riscv_factorial    ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
-; Maximum processors allowed for parallel compilation                             ; All                ; All                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
 ; Enable compact report table                                                     ; Off                ; Off                ;
 ; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
@@ -205,30 +204,30 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                 ;
-+------------------------------------+-----------------+------------------------+------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path   ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                 ; Library ;
-+------------------------------------+-----------------+------------------------+------------------------------------------------------------------------------+---------+
-; Sources/sign_extend_riscv.v        ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/riscv_factorial/Sources/sign_extend_riscv.v        ;         ;
-; Sources/rom_module.v               ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/riscv_factorial/Sources/rom_module.v               ;         ;
-; Sources/riscv_core.v               ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v               ;         ;
-; Sources/register_pc_n.v            ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/riscv_factorial/Sources/register_pc_n.v            ;         ;
-; Sources/register_n.v               ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/riscv_factorial/Sources/register_n.v               ;         ;
-; Sources/register_file.v            ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/riscv_factorial/Sources/register_file.v            ;         ;
-; Sources/ram_module.v               ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/riscv_factorial/Sources/ram_module.v               ;         ;
-; Sources/peripherals_control_unit.v ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/riscv_factorial/Sources/peripherals_control_unit.v ;         ;
-; Sources/mux_4_1.v                  ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/riscv_factorial/Sources/mux_4_1.v                  ;         ;
-; Sources/mux_2_1.v                  ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/riscv_factorial/Sources/mux_2_1.v                  ;         ;
-; Sources/imm_gen.v                  ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/riscv_factorial/Sources/imm_gen.v                  ;         ;
-; Sources/Heard_Bit.v                ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/riscv_factorial/Sources/Heard_Bit.v                ;         ;
-; Sources/gpio.v                     ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v                     ;         ;
-; Sources/FSM_riscv.v                ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/riscv_factorial/Sources/FSM_riscv.v                ;         ;
-; Sources/aludec.v                   ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/riscv_factorial/Sources/aludec.v                   ;         ;
-; Sources/ALU.v                      ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/riscv_factorial/Sources/ALU.v                      ;         ;
-; Sources/riscv_factorial.v          ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_factorial.v          ;         ;
-; opcode.txt                         ; yes             ; Auto-Found File        ; /home/vmrod/devel/quartus/riscv_factorial/opcode.txt                         ;         ;
-+------------------------------------+-----------------+------------------------+------------------------------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                          ;
++------------------------------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                     ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                        ; Library ;
++------------------------------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------------+---------+
+; ../src/sign_extend_riscv.v                           ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/sign_extend_riscv.v        ;         ;
+; ../src/rom_module.v                                  ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/rom_module.v               ;         ;
+; ../src/riscv_factorial.v                             ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/riscv_factorial.v          ;         ;
+; ../src/riscv_core.v                                  ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/riscv_core.v               ;         ;
+; ../src/register_pc_n.v                               ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/register_pc_n.v            ;         ;
+; ../src/register_n.v                                  ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/register_n.v               ;         ;
+; ../src/register_file.v                               ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/register_file.v            ;         ;
+; ../src/ram_module.v                                  ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/ram_module.v               ;         ;
+; ../src/peripherals_control_unit.v                    ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/peripherals_control_unit.v ;         ;
+; ../src/mux_4_1.v                                     ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/mux_4_1.v                  ;         ;
+; ../src/mux_2_1.v                                     ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/mux_2_1.v                  ;         ;
+; ../src/imm_gen.v                                     ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/imm_gen.v                  ;         ;
+; ../src/Heard_Bit.v                                   ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/Heard_Bit.v                ;         ;
+; ../src/gpio.v                                        ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/gpio.v                     ;         ;
+; ../src/FSM_riscv.v                                   ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/FSM_riscv.v                ;         ;
+; ../src/aludec.v                                      ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/aludec.v                   ;         ;
+; ../src/ALU.v                                         ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/ALU.v                      ;         ;
+; /home/vmrod/devel/quartus/riscv_factorial/opcode.txt ; yes             ; Auto-Found File        ; /home/vmrod/devel/quartus/riscv_factorial/opcode.txt                                ;         ;
++------------------------------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------+
@@ -804,79 +803,86 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Tue Apr 12 20:04:16 2022
+    Info: Processing started: Sun May  1 14:17:18 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off riscv_factorial -c riscv_factorial
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file Sources/sign_extend_riscv.v
-    Info (12023): Found entity 1: sign_extend_riscv File: /home/vmrod/devel/quartus/riscv_factorial/Sources/sign_extend_riscv.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file Sources/rom_module.v
-    Info (12023): Found entity 1: rom_module File: /home/vmrod/devel/quartus/riscv_factorial/Sources/rom_module.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file Sources/riscv_core.v
-    Info (12023): Found entity 1: riscv_core File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file Sources/register_pc_n.v
-    Info (12023): Found entity 1: register_pc_n File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_pc_n.v Line: 10
-Info (12021): Found 1 design units, including 1 entities, in source file Sources/register_n_addr.v
-    Info (12023): Found entity 1: register_n_addr File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_n_addr.v Line: 23
-Info (12021): Found 1 design units, including 1 entities, in source file Sources/register_n.v
-    Info (12023): Found entity 1: register_n File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_n.v Line: 10
-Info (12021): Found 1 design units, including 1 entities, in source file Sources/register_file.v
-    Info (12023): Found entity 1: register_file File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_file.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file Sources/ram_module.v
-    Info (12023): Found entity 1: ram_module File: /home/vmrod/devel/quartus/riscv_factorial/Sources/ram_module.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file Sources/peripherals_control_unit.v
-    Info (12023): Found entity 1: peripherals_control_unit File: /home/vmrod/devel/quartus/riscv_factorial/Sources/peripherals_control_unit.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file Sources/mux_4_1.v
-    Info (12023): Found entity 1: mux_4_1 File: /home/vmrod/devel/quartus/riscv_factorial/Sources/mux_4_1.v Line: 8
-Info (12021): Found 1 design units, including 1 entities, in source file Sources/mux_2_1.v
-    Info (12023): Found entity 1: mux_2_1 File: /home/vmrod/devel/quartus/riscv_factorial/Sources/mux_2_1.v Line: 9
-Info (12021): Found 1 design units, including 1 entities, in source file Sources/Instr_Data_Memory.v
-    Info (12023): Found entity 1: Instr_Data_Memory File: /home/vmrod/devel/quartus/riscv_factorial/Sources/Instr_Data_Memory.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file Sources/imm_gen.v
-    Info (12023): Found entity 1: imm_gen File: /home/vmrod/devel/quartus/riscv_factorial/Sources/imm_gen.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file Sources/Heard_Bit.v
-    Info (12023): Found entity 1: Heard_Bit File: /home/vmrod/devel/quartus/riscv_factorial/Sources/Heard_Bit.v Line: 8
-Info (12021): Found 1 design units, including 1 entities, in source file Sources/gpio.v
-    Info (12023): Found entity 1: gpio File: /home/vmrod/devel/quartus/riscv_factorial/Sources/gpio.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file Sources/FSM_riscv.v
-    Info (12023): Found entity 1: FSM_riscv File: /home/vmrod/devel/quartus/riscv_factorial/Sources/FSM_riscv.v Line: 8
-Info (12021): Found 1 design units, including 1 entities, in source file Sources/aludec.v
-    Info (12023): Found entity 1: aludec File: /home/vmrod/devel/quartus/riscv_factorial/Sources/aludec.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file Sources/ALU.v
-    Info (12023): Found entity 1: ALU File: /home/vmrod/devel/quartus/riscv_factorial/Sources/ALU.v Line: 8
-Info (12021): Found 1 design units, including 1 entities, in source file Sources/riscv_factorial.v
-    Info (12023): Found entity 1: riscv_factorial File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_factorial.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file simulation/modelsim/riscv_factorial_TB.v
-    Info (12023): Found entity 1: riscv_factorial_TB File: /home/vmrod/devel/quartus/riscv_factorial/simulation/modelsim/riscv_factorial_TB.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/zero_extend_shamt.v
+    Info (12023): Found entity 1: zero_extend_shamt File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/zero_extend_shamt.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/zero_extend.v
+    Info (12023): Found entity 1: zero_extend File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/zero_extend.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/sign_extend_riscv.v
+    Info (12023): Found entity 1: sign_extend_riscv File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/sign_extend_riscv.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/sign_extend.v
+    Info (12023): Found entity 1: sign_extend File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/sign_extend.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/rom_module.v
+    Info (12023): Found entity 1: rom_module File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/rom_module.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/riscv_led.v
+    Info (12023): Found entity 1: riscv_led File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/riscv_led.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/riscv_factorial.v
+    Info (12023): Found entity 1: riscv_factorial File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/riscv_factorial.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/riscv_core.v
+    Info (12023): Found entity 1: riscv_core File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/riscv_core.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/register_pc_n.v
+    Info (12023): Found entity 1: register_pc_n File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/register_pc_n.v Line: 10
+Info (12021): Found 1 design units, including 1 entities, in source file /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/register_n_addr.v
+    Info (12023): Found entity 1: register_n_addr File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/register_n_addr.v Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/register_n.v
+    Info (12023): Found entity 1: register_n File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/register_n.v Line: 10
+Info (12021): Found 1 design units, including 1 entities, in source file /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/register_file.v
+    Info (12023): Found entity 1: register_file File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/register_file.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/ram_module.v
+    Info (12023): Found entity 1: ram_module File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/ram_module.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/peripherals_control_unit.v
+    Info (12023): Found entity 1: peripherals_control_unit File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/peripherals_control_unit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/mux_4_1.v
+    Info (12023): Found entity 1: mux_4_1 File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/mux_4_1.v Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/mux_2_1.v
+    Info (12023): Found entity 1: mux_2_1 File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/mux_2_1.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/Instr_Data_Memory.v
+    Info (12023): Found entity 1: Instr_Data_Memory File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/Instr_Data_Memory.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/imm_gen.v
+    Info (12023): Found entity 1: imm_gen File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/imm_gen.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/Heard_Bit.v
+    Info (12023): Found entity 1: Heard_Bit File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/Heard_Bit.v Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/gpio.v
+    Info (12023): Found entity 1: gpio File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/gpio.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/FSM_riscv.v
+    Info (12023): Found entity 1: FSM_riscv File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/FSM_riscv.v Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/aludec.v
+    Info (12023): Found entity 1: aludec File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/aludec.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/ALU.v
+    Info (12023): Found entity 1: ALU File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/ALU.v Line: 8
 Info (12127): Elaborating entity "riscv_factorial" for the top level hierarchy
-Info (12128): Elaborating entity "riscv_core" for hierarchy "riscv_core:riscv_core_" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_factorial.v Line: 35
-Info (12128): Elaborating entity "FSM_riscv" for hierarchy "riscv_core:riscv_core_|FSM_riscv:FSM_riscv" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v Line: 63
-Info (10264): Verilog HDL Case Statement information at FSM_riscv.v(169): all case item expressions in this case statement are onehot File: /home/vmrod/devel/quartus/riscv_factorial/Sources/FSM_riscv.v Line: 169
-Info (12128): Elaborating entity "register_pc_n" for hierarchy "riscv_core:riscv_core_|register_pc_n:PC_register" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v Line: 87
-Info (12128): Elaborating entity "mux_2_1" for hierarchy "riscv_core:riscv_core_|mux_2_1:mux_2_1_PC_ALUOut" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v Line: 92
-Info (12128): Elaborating entity "register_n" for hierarchy "riscv_core:riscv_core_|register_n:instruction_register" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v Line: 102
-Info (12128): Elaborating entity "register_file" for hierarchy "riscv_core:riscv_core_|register_file:register_file_1" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v Line: 116
-Warning (10240): Verilog HDL Always Construct warning at register_file.v(40): inferring latch(es) for variable "i", which holds its previous value in one or more paths through the always construct File: /home/vmrod/devel/quartus/riscv_factorial/Sources/register_file.v Line: 40
-Info (12128): Elaborating entity "imm_gen" for hierarchy "riscv_core:riscv_core_|imm_gen:imm_gen" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v Line: 118
-Info (12128): Elaborating entity "sign_extend_riscv" for hierarchy "riscv_core:riscv_core_|sign_extend_riscv:sign_extend_riscv" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v Line: 120
-Info (12128): Elaborating entity "mux_4_1" for hierarchy "riscv_core:riscv_core_|mux_4_1:mux_4_1_PC_A" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v Line: 126
-Info (12128): Elaborating entity "aludec" for hierarchy "riscv_core:riscv_core_|aludec:aludec" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v Line: 131
-Info (12128): Elaborating entity "ALU" for hierarchy "riscv_core:riscv_core_|ALU:ALU" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_core.v Line: 141
-Warning (10764): Verilog HDL warning at ALU.v(68): converting signed shift amount to unsigned File: /home/vmrod/devel/quartus/riscv_factorial/Sources/ALU.v Line: 68
-Info (12128): Elaborating entity "peripherals_control_unit" for hierarchy "peripherals_control_unit:peripherals_control_unit_" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_factorial.v Line: 51
-Info (12128): Elaborating entity "rom_module" for hierarchy "rom_module:rom_module_" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_factorial.v Line: 61
-Warning (10850): Verilog HDL warning at rom_module.v(15): number of words (21) in memory file does not match the number of elements in the address range [0:31] File: /home/vmrod/devel/quartus/riscv_factorial/Sources/rom_module.v Line: 15
-Info (12128): Elaborating entity "ram_module" for hierarchy "ram_module:ram_module_" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_factorial.v Line: 71
-Info (12128): Elaborating entity "gpio" for hierarchy "gpio:gpio_" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_factorial.v Line: 83
-Info (12128): Elaborating entity "Heard_Bit" for hierarchy "Heard_Bit:clk_timer" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_factorial.v Line: 86
-Info (12128): Elaborating entity "Heard_Bit" for hierarchy "Heard_Bit:design_monitor" File: /home/vmrod/devel/quartus/riscv_factorial/Sources/riscv_factorial.v Line: 89
+Info (12128): Elaborating entity "riscv_core" for hierarchy "riscv_core:riscv_core_" File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/riscv_factorial.v Line: 35
+Info (12128): Elaborating entity "FSM_riscv" for hierarchy "riscv_core:riscv_core_|FSM_riscv:FSM_riscv" File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/riscv_core.v Line: 63
+Info (10264): Verilog HDL Case Statement information at FSM_riscv.v(169): all case item expressions in this case statement are onehot File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/FSM_riscv.v Line: 169
+Info (12128): Elaborating entity "register_pc_n" for hierarchy "riscv_core:riscv_core_|register_pc_n:PC_register" File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/riscv_core.v Line: 87
+Info (12128): Elaborating entity "mux_2_1" for hierarchy "riscv_core:riscv_core_|mux_2_1:mux_2_1_PC_ALUOut" File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/riscv_core.v Line: 92
+Info (12128): Elaborating entity "register_n" for hierarchy "riscv_core:riscv_core_|register_n:instruction_register" File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/riscv_core.v Line: 102
+Info (12128): Elaborating entity "register_file" for hierarchy "riscv_core:riscv_core_|register_file:register_file_1" File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/riscv_core.v Line: 116
+Warning (10240): Verilog HDL Always Construct warning at register_file.v(40): inferring latch(es) for variable "i", which holds its previous value in one or more paths through the always construct File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/register_file.v Line: 40
+Info (12128): Elaborating entity "imm_gen" for hierarchy "riscv_core:riscv_core_|imm_gen:imm_gen" File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/riscv_core.v Line: 118
+Info (12128): Elaborating entity "sign_extend_riscv" for hierarchy "riscv_core:riscv_core_|sign_extend_riscv:sign_extend_riscv" File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/riscv_core.v Line: 120
+Info (12128): Elaborating entity "mux_4_1" for hierarchy "riscv_core:riscv_core_|mux_4_1:mux_4_1_PC_A" File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/riscv_core.v Line: 126
+Info (12128): Elaborating entity "aludec" for hierarchy "riscv_core:riscv_core_|aludec:aludec" File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/riscv_core.v Line: 131
+Info (12128): Elaborating entity "ALU" for hierarchy "riscv_core:riscv_core_|ALU:ALU" File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/riscv_core.v Line: 141
+Warning (10764): Verilog HDL warning at ALU.v(68): converting signed shift amount to unsigned File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/ALU.v Line: 68
+Info (12128): Elaborating entity "peripherals_control_unit" for hierarchy "peripherals_control_unit:peripherals_control_unit_" File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/riscv_factorial.v Line: 51
+Info (12128): Elaborating entity "rom_module" for hierarchy "rom_module:rom_module_" File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/riscv_factorial.v Line: 61
+Warning (10850): Verilog HDL warning at rom_module.v(15): number of words (21) in memory file does not match the number of elements in the address range [0:31] File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/rom_module.v Line: 15
+Info (12128): Elaborating entity "ram_module" for hierarchy "ram_module:ram_module_" File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/riscv_factorial.v Line: 71
+Info (12128): Elaborating entity "gpio" for hierarchy "gpio:gpio_" File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/riscv_factorial.v Line: 83
+Info (12128): Elaborating entity "Heard_Bit" for hierarchy "Heard_Bit:clk_timer" File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/riscv_factorial.v Line: 86
+Info (12128): Elaborating entity "Heard_Bit" for hierarchy "Heard_Bit:design_monitor" File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/riscv_factorial.v Line: 89
 Info (276014): Found 2 instances of uninferred RAM logic
-    Info (276007): RAM logic "ram_module:ram_module_|ram" is uninferred due to asynchronous read logic File: /home/vmrod/devel/quartus/riscv_factorial/Sources/ram_module.v Line: 11
-    Info (276004): RAM logic "rom_module:rom_module_|rom" is uninferred due to inappropriate RAM size File: /home/vmrod/devel/quartus/riscv_factorial/Sources/rom_module.v Line: 11
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "/home/vmrod/devel/quartus/riscv_factorial/db/riscv_factorial.ram0_rom_module_23378196.hdl.mif" contains "don't care" values -- overwriting them with 0s
+    Info (276007): RAM logic "ram_module:ram_module_|ram" is uninferred due to asynchronous read logic File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/ram_module.v Line: 11
+    Info (276004): RAM logic "rom_module:rom_module_|rom" is uninferred due to inappropriate RAM size File: /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/src/rom_module.v Line: 11
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "/home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/proj_quartus/db/riscv_factorial.ram0_rom_module_23378196.hdl.mif" contains "don't care" values -- overwriting them with 0s
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 5 registers lost all their fanouts during netlist optimizations.
-Info (144001): Generated suppressed messages file /home/vmrod/devel/quartus/riscv_factorial/output_files/riscv_factorial.map.smsg
+Info (144001): Generated suppressed messages file /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/proj_quartus/output_files/riscv_factorial.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Info (21057): Implemented 8347 device resources after synthesis - the final resource count might be different
@@ -884,16 +890,16 @@ Info (21057): Implemented 8347 device resources after synthesis - the final reso
     Info (21059): Implemented 9 output pins
     Info (21061): Implemented 8326 logic cells
     Info (21062): Implemented 2 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
     Info: Peak virtual memory: 784 megabytes
-    Info: Processing ended: Tue Apr 12 20:04:30 2022
-    Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:24
+    Info: Processing ended: Sun May  1 14:17:31 2022
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:22
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in /home/vmrod/devel/quartus/riscv_factorial/output_files/riscv_factorial.map.smsg.
+The suppressed messages can be found in /home/vmrod/devel/quartus/DM_Rodriguez_Bahena_RISC_V/proj_quartus/output_files/riscv_factorial.map.smsg.
 
 
