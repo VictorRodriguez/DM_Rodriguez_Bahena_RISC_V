@@ -12,15 +12,15 @@ reg [DATA_WIDTH-1:0] rom[ADDR_WIDTH-1:0];
 
 initial
   begin
-		$readmemb("/home/vmrod/devel/quartus/riscv_factorial/opcode.txt" ,rom);
+		$readmemb("../assembly_code/opcode.txt" ,rom);
   end
 always@ (posedge clk)
   begin
   	if (WE) begin
 	 rom[Addr] <= WD;
-	end 
+	end
 end
- 
+
 assign RD = rom[Addr];
 
 endmodule
