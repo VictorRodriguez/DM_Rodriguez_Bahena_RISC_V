@@ -12,7 +12,7 @@ reg [DATA_WIDTH-1:0] rom[ADDR_WIDTH-1:0];
 
 initial
   begin
-		$readmemb("../assembly_code/opcode.txt" ,rom);
+		$readmemb("../assembly_code/opcode.out" ,rom);
   end
 always@ (posedge clk)
   begin
